@@ -1,0 +1,191 @@
+﻿<UserControl x:Class="MaterialControlSimulator.SimulationType.SampleType"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EIF_Simulator.Controls;assembly=EIF_Simulator.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="850" d:DesignWidth="1600">
+    <Grid>
+        <Canvas x:Name="SimulationCanvas">
+
+            <local:SpeechBubbleControl
+                    Canvas.Left="1000"
+                    Canvas.Top="200"
+                    Width="350"
+                    Height="255"
+                    Text="CELL TRANSFER"
+                    TextSize="40"
+                    BubbleBorderBrush="#00B8D4"
+                    TailPosition="LeftCenter"
+                    TextBrush="#203040"/>
+
+            <local:PortControl           
+                      x:Name="Port01"                
+                      Id="Port01"     
+                      BorderBrush="#7667D8"
+                      Canvas.Left="110"       
+                      Canvas.Top="120"/>
+
+            <local:PortControl           
+                      x:Name="Port02"                
+                      Id="Port02"      
+                      BorderBrush="#7667D8"         
+                      Canvas.Left="590"       
+                      Canvas.Top="500"/>
+
+            <local:LocationControl           
+                      x:Name="Loc01"                
+                      Id="Loc01"      
+                      BorderBrush="#7667D8"         
+                      Canvas.Left="100"       
+                      Canvas.Top="200"/>
+
+            <local:LocationControl     
+                      x:Name="Loc02" 
+                      Id="Loc02"  
+                      BorderBrush="#7667D8"             
+                      Canvas.Left="220"   
+                      Canvas.Top="200"/>
+
+            <local:HostRequestControl                
+                      x:Name="Loc03"                 
+                      Id="Loc03"  
+                      BorderBrush="#7667D8"     
+                      Canvas.Left="340"       
+                      Canvas.Top="200"/>
+
+            <local:LocationControl           
+                      x:Name="Loc04"                  
+                      Id="Loc04" 
+                      BorderBrush="#7667D8"                
+                      Canvas.Left="460"               
+                      Canvas.Top="200"/>
+
+            <local:CellUnloadControl          
+                      x:Name="Loc05"                  
+                      Id="Loc05"
+                      BorderBrush="#7667D8"
+                      Canvas.Left="580"               
+                      Canvas.Top="200"/>
+
+            <local:LocationControl          
+                      x:Name="Loc06"                  
+                      Id="Loc06"  
+                      BorderBrush="#7667D8"               
+                      Canvas.Left="580"               
+                      Canvas.Top="300"/>
+
+            <local:LocationControl          
+                      x:Name="Loc07"                  
+                      Id="Loc07" 
+                      BorderBrush="#7667D8"                
+                      Canvas.Left="580"               
+                      Canvas.Top="400"/>
+
+            <local:LocationControl          
+                      x:Name="Loc08"                  
+                      Id="Loc08"   
+                      BorderBrush="#7667D8"              
+                      Canvas.Left="460"               
+                      Canvas.Top="400"/>
+
+            <local:LocationControl          
+                      x:Name="Loc09"                  
+                      Id="Loc09" 
+                      BorderBrush="#7667D8"                
+                      Canvas.Left="340"               
+                      Canvas.Top="400"/>
+
+            <local:LocationControl          
+                      x:Name="Loc10"                  
+                      Id="Loc10" 
+                      BorderBrush="#7667D8"                
+                      Canvas.Left="220"               
+                      Canvas.Top="400"/>
+
+            <local:LocationControl          
+                      x:Name="Loc11"                  
+                      Id="Loc11"  
+                      BorderBrush="#7667D8"               
+                      Canvas.Left="100"               
+                      Canvas.Top="400"/>
+
+            <local:CarrierProcessControl          
+                      x:Name="Loc12"                  
+                      Id="Loc12" 
+                      BorderBrush="#7667D8"
+                      SetEmpty="False"
+                      NextNodeId="Loc01"
+                      Canvas.Left="100"               
+                      Canvas.Top="300"/>
+
+            <local:LocationControl          
+                      x:Name="Loc13"                  
+                      Id="Loc13" 
+                      BorderBrush="#7667D8"                
+                      Canvas.Left="340"               
+                      Canvas.Top="300"/>
+
+            <local:CellLoadControl          
+                  x:Name="PkgLoc01"                  
+                  Id="PkgLoc01"   
+                  BorderBrush="GreenYellow"              
+                  Canvas.Left="670"               
+                  Canvas.Top="200"/>
+            
+            <local:LocationControl          
+                  x:Name="PkgLoc02"                  
+                  Id="PkgLoc02"    
+                  BorderBrush="GreenYellow"                
+                  Canvas.Left="760"               
+                  Canvas.Top="200"/>
+            
+            <local:LocationControl          
+                 x:Name="PkgLoc03"                  
+                 Id="PkgLoc03"     
+                  BorderBrush="GreenYellow"               
+                 Canvas.Left="850"               
+                 Canvas.Top="200"/>
+
+            <local:LocationControl          
+                 x:Name="PkgLoc04"                  
+                 Id="PkgLoc04"    
+                  BorderBrush="GreenYellow"                
+                 Canvas.Left="850"               
+                 Canvas.Top="290"/>
+
+            <local:LocationControl          
+                 x:Name="PkgLoc05"                  
+                 Id="PkgLoc05"     
+                  BorderBrush="GreenYellow"               
+                 Canvas.Left="850"               
+                 Canvas.Top="380"/>
+
+            <local:CarrierProcessControl          
+                 x:Name="PkgLoc06"                  
+                 Id="PkgLoc06"  
+                  BorderBrush="GreenYellow"   
+                 SetEmpty="True"
+                 NextNodeId="PkgLoc07"               
+                 Canvas.Left="760"               
+                 Canvas.Top="380"/>
+
+            <local:LocationControl          
+                  x:Name="PkgLoc07"                  
+                  Id="PkgLoc07"  
+                  BorderBrush="GreenYellow"                  
+                  Canvas.Left="760"               
+                  Canvas.Top="290"/>
+            
+            <local:LocationControl          
+                  x:Name="PkgLoc08"                  
+                  Id="PkgLoc08"   
+                  BorderBrush="GreenYellow"                 
+                  Canvas.Left="670"               
+                  Canvas.Top="290"/>
+
+        </Canvas>
+    </Grid>
+        
+</UserControl>

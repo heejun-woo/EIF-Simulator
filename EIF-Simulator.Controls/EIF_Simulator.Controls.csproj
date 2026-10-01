@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>EIF_Simulator.Controls</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\bin</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CarrierProcessControl.xaml.cs" />
+    <Compile Remove="CellLoadControl.xaml.cs" />
+    <Compile Remove="CellUnloadControl.xaml.cs" />
+    <Compile Remove="CommunicationStatusControl.xaml.cs" />
+    <Compile Remove="EquipmentGroup.cs" />
+    <Compile Remove="HostRequestControl.xaml.cs" />
+    <Compile Remove="LocationControl.xaml.cs" />
+    <Compile Remove="PortControl.xaml.cs" />
+    <Compile Remove="SpeechBubbleControl.xaml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="CarrierProcessControl.xaml" />
+    <Page Remove="CellLoadControl.xaml" />
+    <Page Remove="CellUnloadControl.xaml" />
+    <Page Remove="CommunicationStatusControl.xaml" />
+    <Page Remove="HostRequestControl.xaml" />
+    <Page Remove="LocationControl.xaml" />
+    <Page Remove="PortControl.xaml" />
+    <Page Remove="SpeechBubbleControl.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="5.4.0-ci1501" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.4.0-ci1501" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EIF_Simulator.McProtocol\EIF_Simulator.McProtocol.csproj" />
+    <ProjectReference Include="..\EIF_Simulator.PlcCore\EIF_Simulator.Core.csproj" />
+  </ItemGroup>
+
+</Project>

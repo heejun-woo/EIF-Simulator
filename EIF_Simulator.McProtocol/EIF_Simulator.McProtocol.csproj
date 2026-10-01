@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\bin</BaseOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="5.4.0-ci1501" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.4.0-ci1501" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EIF_Simulator.PlcCore\EIF_Simulator.Core.csproj" />
+  </ItemGroup>
+
+</Project>

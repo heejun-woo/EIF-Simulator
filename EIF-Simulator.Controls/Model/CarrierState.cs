@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EIF_Simulator.Controls
+{
+    public class CarrierState
+    {
+        public string CarrierId { get; set; } = "";
+
+        // 마지막으로 확정된 위치
+        public string CurrentNodeId { get; set; } = "";
+
+        // 현재 목적지
+        public string DestinationNodeId { get; set; } = "";
+
+        public int MaxCellCount { get; set; }
+
+        public int CurrentCellCount { get; set; }
+    }
+}

@@ -1,0 +1,65 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36603.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIF_Simulator.Controls", "EIF-Simulator.Controls\EIF_Simulator.Controls.csproj", "{3E430A19-B22B-40FA-B334-DEFDDA912D6B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B} = {81B15774-B097-43C3-9848-EA9E1AA26D1B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIF_Simulator.Core", "EIF_Simulator.PlcCore\EIF_Simulator.Core.csproj", "{81B15774-B097-43C3-9848-EA9E1AA26D1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIF_Simulator.McProtocol", "EIF_Simulator.McProtocol\EIF_Simulator.McProtocol.csproj", "{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B} = {81B15774-B097-43C3-9848-EA9E1AA26D1B}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessControlSimulator", "ProcessControlSimulator\ProcessControlSimulator.csproj", "{62775BF4-E795-40FB-8417-CB1D3167ABEF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B} = {3E430A19-B22B-40FA-B334-DEFDDA912D6B}
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B} = {81B15774-B097-43C3-9848-EA9E1AA26D1B}
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1} = {D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialControlSimulator", "MaterialControlSimulator\MaterialControlSimulator.csproj", "{223E78D2-ADB4-4529-BA6A-61C96F4631EB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B} = {3E430A19-B22B-40FA-B334-DEFDDA912D6B}
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B} = {81B15774-B097-43C3-9848-EA9E1AA26D1B}
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1} = {D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D39695E5-CDDF-4D2F-A2E0-D6FD37FF28B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62775BF4-E795-40FB-8417-CB1D3167ABEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62775BF4-E795-40FB-8417-CB1D3167ABEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62775BF4-E795-40FB-8417-CB1D3167ABEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62775BF4-E795-40FB-8417-CB1D3167ABEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{223E78D2-ADB4-4529-BA6A-61C96F4631EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{223E78D2-ADB4-4529-BA6A-61C96F4631EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{223E78D2-ADB4-4529-BA6A-61C96F4631EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{223E78D2-ADB4-4529-BA6A-61C96F4631EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79AB7733-3304-4961-91EA-588068E79747}
+	EndGlobalSection
+EndGlobal

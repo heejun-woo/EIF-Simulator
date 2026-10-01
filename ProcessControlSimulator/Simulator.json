@@ -1,0 +1,14 @@
+﻿{
+  "SimulationType": "EL1",
+  "McPort": 5000,
+  "PlcIndex": 0,
+
+  "EquipmentPlcs": [
+    {
+      "Name": "EQ01",
+      "McPort": 5001,
+      "PlcIndex": 1,
+      "Type" :"LS_PKG_EL1"
+    }
+  ]
+}
