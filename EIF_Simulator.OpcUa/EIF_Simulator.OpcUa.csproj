@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration" Version="2.0.0-preview.6" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="2.0.0-preview.6" />
+    <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server" Version="2.0.0-preview.6" />
+  </ItemGroup>
+
+</Project>
