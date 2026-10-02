@@ -5,7 +5,14 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
+    <BaseOutputPath>..\bin</BaseOutputPath>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="CommonLogic.cs" />
+    <Compile Remove="NodeManager.cs" />
+    <Compile Remove="PLC_Server.cs" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration" Version="2.0.0-preview.6" />
