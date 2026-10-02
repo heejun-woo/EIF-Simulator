@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
@@ -15,6 +15,17 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EIF_Simulator.PlcCore\EIF_Simulator.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logic\C2_State Management\" />
+    <Folder Include="Logic\G1_Material Management\" />
+    <Folder Include="Logic\G2_Carrier Management\" />
+    <Folder Include="Logic\G4_Cell Management\" />
+    <Folder Include="Logic\G6_Equipment UBM Parts Management\" />
+    <Folder Include="Logic\T1_Passive Machine State Management\" />
+    <Folder Include="Logic\T2_Active Machine State Management\" />
+    <Folder Include="Logic\T3_Transfer Management\" />
   </ItemGroup>
 
 </Project>

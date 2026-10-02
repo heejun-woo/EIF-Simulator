@@ -1,6 +1,7 @@
 ﻿using EIF_Simulator.Controls;
 using EIF_Simulator.Controls.Manager;
 using EIF_Simulator.Core;
+using EIF_Simulator.McProtocol.Logic;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;

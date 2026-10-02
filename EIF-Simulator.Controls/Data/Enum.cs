@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WpfApp
+namespace EIF_Simulator.Controls
 {
     public enum NodeState
     {

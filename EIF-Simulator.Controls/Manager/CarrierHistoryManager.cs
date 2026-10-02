@@ -7,7 +7,6 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using System.Threading;
-using WpfApp;
 
 namespace EIF_Simulator.Controls.Manager
 {

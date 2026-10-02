@@ -1,4 +1,5 @@
 ﻿
+using EIF_Simulator.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
 
-namespace EIF_Simulator.Core
+namespace EIF_Simulator.McProtocol.Logic
 {
     public class LotInfoRequestLogic : IPlcLogic
     {

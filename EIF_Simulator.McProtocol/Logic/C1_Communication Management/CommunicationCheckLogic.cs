@@ -1,11 +1,12 @@
-﻿using System;
+﻿using EIF_Simulator.Core;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EIF_Simulator.Core
+namespace EIF_Simulator.McProtocol.Logic
 {
     public class CommunicationCheckLogic
       : IPlcLogic

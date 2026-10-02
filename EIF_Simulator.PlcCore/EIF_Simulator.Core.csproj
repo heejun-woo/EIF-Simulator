@@ -9,14 +9,38 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logic\C2_State Management\" />
-    <Folder Include="Logic\G1_Material Management\" />
-    <Folder Include="Logic\G2_Carrier Management\" />
-    <Folder Include="Logic\G4_Cell Management\" />
-    <Folder Include="Logic\G6_Equipment UBM Parts Management\" />
-    <Folder Include="Logic\T1_Passive Machine State Management\" />
-    <Folder Include="Logic\T2_Active Machine State Management\" />
-    <Folder Include="Logic\T3_Transfer Management\" />
+    <Compile Remove="Logic\C2_State Management\**" />
+    <Compile Remove="Logic\G1_Material Management\**" />
+    <Compile Remove="Logic\G2_Carrier Management\**" />
+    <Compile Remove="Logic\G4_Cell Management\**" />
+    <Compile Remove="Logic\G6_Equipment UBM Parts Management\**" />
+    <Compile Remove="Logic\T1_Passive Machine State Management\**" />
+    <Compile Remove="Logic\T2_Active Machine State Management\**" />
+    <Compile Remove="Logic\T3_Transfer Management\**" />
+    <EmbeddedResource Remove="Logic\C2_State Management\**" />
+    <EmbeddedResource Remove="Logic\G1_Material Management\**" />
+    <EmbeddedResource Remove="Logic\G2_Carrier Management\**" />
+    <EmbeddedResource Remove="Logic\G4_Cell Management\**" />
+    <EmbeddedResource Remove="Logic\G6_Equipment UBM Parts Management\**" />
+    <EmbeddedResource Remove="Logic\T1_Passive Machine State Management\**" />
+    <EmbeddedResource Remove="Logic\T2_Active Machine State Management\**" />
+    <EmbeddedResource Remove="Logic\T3_Transfer Management\**" />
+    <None Remove="Logic\C2_State Management\**" />
+    <None Remove="Logic\G1_Material Management\**" />
+    <None Remove="Logic\G2_Carrier Management\**" />
+    <None Remove="Logic\G4_Cell Management\**" />
+    <None Remove="Logic\G6_Equipment UBM Parts Management\**" />
+    <None Remove="Logic\T1_Passive Machine State Management\**" />
+    <None Remove="Logic\T2_Active Machine State Management\**" />
+    <None Remove="Logic\T3_Transfer Management\**" />
+    <Page Remove="Logic\C2_State Management\**" />
+    <Page Remove="Logic\G1_Material Management\**" />
+    <Page Remove="Logic\G2_Carrier Management\**" />
+    <Page Remove="Logic\G4_Cell Management\**" />
+    <Page Remove="Logic\G6_Equipment UBM Parts Management\**" />
+    <Page Remove="Logic\T1_Passive Machine State Management\**" />
+    <Page Remove="Logic\T2_Active Machine State Management\**" />
+    <Page Remove="Logic\T3_Transfer Management\**" />
   </ItemGroup>
 
   <ItemGroup>

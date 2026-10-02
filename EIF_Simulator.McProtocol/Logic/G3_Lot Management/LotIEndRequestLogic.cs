@@ -1,4 +1,5 @@
 ﻿
+using EIF_Simulator.Core;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,10 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-
-namespace EIF_Simulator.Core
+namespace EIF_Simulator.McProtocol.Logic
 {
-    public class LotIStartRequestLogic : IPlcLogic
+    public class LotIEndRequestLogic : IPlcLogic
     {
 
         private readonly int _requestAddress;
@@ -28,7 +28,7 @@ namespace EIF_Simulator.Core
         private bool _firstScan = true;
 
 
-        public LotIStartRequestLogic(
+        public LotIEndRequestLogic(
             int requestAddress,
             int responseAddress,
             int timeoutSeconds = 30)
@@ -90,15 +90,6 @@ namespace EIF_Simulator.Core
 
             if (response)
             {
-                string? strLotID = manager.GetValue<string>("W3868", _LotIdLength);
-                manager.SetValue("W3878", strLotID, _LotIdLength);
-                manager.SetValue("W3868", string.Empty, _LotIdLength);
-
-                string? strProdID = manager.GetValue<string>("W3860", 5);
-                manager.SetValue("W3870", strProdID, 5);
-                manager.SetValue("W3860", string.Empty, 5);
-
-                manager.WriteBit(0x380A, true);
 
                 manager.WriteBit(_requestAddress, false);
                 return;
