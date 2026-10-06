@@ -56,7 +56,12 @@ namespace ProcessControlSimulatorOpcUa
                 "LGES.CommMng.Check.H_CommCheck",
                 false);
 
+
+
             await _opcUa.StartAsync(4840);
+
+
+            _ = _opcUa.StartAsync();
 
             ConnectUi();
         }
