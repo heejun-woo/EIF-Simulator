@@ -93,6 +93,9 @@ namespace MaterialControlSimulator.SimulationType
             PkgLoc01.NextNodeId = "PkgLoc02";
             PkgLoc01.PairNodeId = "Loc06";
 
+            PkgLoc02.NextNodeId = "PkgLoc03";
+            PkgLoc02.PairNodeId = "Loc06";
+
             SetPlcAddress();
 
 
@@ -113,8 +116,21 @@ namespace MaterialControlSimulator.SimulationType
 
 
             App.scanEngine.AddLogic(new CommunicationCheckLogic());
-            App.scanEngine.AddLogic(new CellTransferLogic(Loc05, Loc05.Id, PkgLoc01.Id, Loc05.NextNodeId, PkgLoc01.NextNodeId, 10, 10, App.PlcContext));
-            App.scanEngine.AddLogic(new HostRequestLogic(Loc03.Id, 0x3A49, 0x3149, 0x3419, Loc04.Id, Loc09.Id, string.Empty, 30, App.PlcContext));
+            //App.scanEngine.AddLogic(new CellTransferLogic(Loc05, Loc05.Id, PkgLoc01.Id, Loc05.NextNodeId, PkgLoc01.NextNodeId, 10, 10, App.PlcContext));
+            //App.scanEngine.AddLogic(new HostRequestLogic(Loc03.Id, 0x3A49, 0x3149, 0x3419, Loc04.Id, Loc09.Id, string.Empty, 30, App.PlcContext));
+
+            App.scanEngine.AddLogic(
+                new CellTransferLogic(Loc05, Loc05.Id, Loc05.NextNodeId,
+                new[]
+                {
+                    new CellTransferLogic.LoadTarget(
+                        PkgLoc01.Id,
+                        PkgLoc01.NextNodeId),                    
+                    new CellTransferLogic.LoadTarget(     
+                        PkgLoc02.Id,
+                        PkgLoc02.NextNodeId)
+                }, 
+                10, 1000, App.PlcContext));
 
             App.scanEngine.Start();
         }
