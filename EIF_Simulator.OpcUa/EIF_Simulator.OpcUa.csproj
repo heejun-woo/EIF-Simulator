@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
@@ -18,6 +18,22 @@
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Configuration" Version="2.0.0-preview.6" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Core" Version="2.0.0-preview.6" />
     <PackageReference Include="OPCFoundation.NetStandard.Opc.Ua.Server" Version="2.0.0-preview.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logic\C2_State Management\" />
+    <Folder Include="Logic\G1_Material Management\" />
+    <Folder Include="Logic\G2_Carrier Management\" />
+    <Folder Include="Logic\G4_Cell Management\" />
+    <Folder Include="Logic\G6_Equipment UBM Parts Management\" />
+    <Folder Include="Logic\T1_Passive Machine State Management\" />
+    <Folder Include="Logic\T2_Active Machine State Management\" />
+    <Folder Include="Logic\T3_Transfer Management\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EIF-Simulator.Controls\EIF_Simulator.Controls.csproj" />
+    <ProjectReference Include="..\EIF_Simulator.PlcCore\EIF_Simulator.Core.csproj" />
   </ItemGroup>
 
 </Project>

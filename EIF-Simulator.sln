@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.8.12023.21 stable
+VisualStudioVersion = 18.8.12023.21
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIF_Simulator.Controls", "EIF-Simulator.Controls\EIF_Simulator.Controls.csproj", "{3E430A19-B22B-40FA-B334-DEFDDA912D6B}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaterialControlSimulator", 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EIF_Simulator.OpcUa", "EIF_Simulator.OpcUa\EIF_Simulator.OpcUa.csproj", "{2E0EE739-F495-4ECE-8068-428703E83D7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{3E430A19-B22B-40FA-B334-DEFDDA912D6B} = {3E430A19-B22B-40FA-B334-DEFDDA912D6B}
+		{81B15774-B097-43C3-9848-EA9E1AA26D1B} = {81B15774-B097-43C3-9848-EA9E1AA26D1B}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessControlSimulatorOpcUa", "ProcessControlSimulatorOpcUa\ProcessControlSimulatorOpcUa.csproj", "{DC111F1E-B2DB-4271-AACA-437D5CC624F5}"
 	ProjectSection(ProjectDependencies) = postProject
