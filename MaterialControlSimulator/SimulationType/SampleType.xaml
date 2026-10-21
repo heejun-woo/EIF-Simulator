@@ -48,7 +48,7 @@
                       Canvas.Left="220"   
                       Canvas.Top="200"/>
 
-            <local:HostRequestControl                
+            <local:LocationControl                
                       x:Name="Loc03"                 
                       Id="Loc03"  
                       BorderBrush="#7667D8"     
@@ -133,8 +133,8 @@
                   BorderBrush="GreenYellow"              
                   Canvas.Left="670"               
                   Canvas.Top="200"/>
-            
-            <local:LocationControl          
+
+            <local:CellLoadControl          
                   x:Name="PkgLoc02"                  
                   Id="PkgLoc02"    
                   BorderBrush="GreenYellow"                

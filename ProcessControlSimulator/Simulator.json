@@ -1,5 +1,5 @@
 ﻿{
-  "SimulationType": "EL1",
+  "SimulationType": "Sample",
   "McPort": 5000,
   "PlcIndex": 0,
 
@@ -8,7 +8,7 @@
       "Name": "EQ01",
       "McPort": 5001,
       "PlcIndex": 1,
-      "Type" :"LS_PKG_EL1"
+      "Type": "LS_PKG_EL1"
     }
   ]
 }
