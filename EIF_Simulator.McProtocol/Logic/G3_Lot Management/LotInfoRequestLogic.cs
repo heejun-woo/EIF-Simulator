@@ -15,11 +15,16 @@ namespace EIF_Simulator.McProtocol.Logic
     public class LotInfoRequestLogic : IPlcLogic
     {
 
-        private readonly int _requestAddress;
-        private readonly int _responseAddress;
-        private readonly int _lotIdAddress;
+        private readonly int TRIGGER;
+        private readonly int CONF_TRIGGER;
+        private readonly int CONF_TRIGGER_ACK;
+        private readonly int TIMEOUT;
 
-        private readonly int _timeoutSeconds;
+
+        public string NEXT_LOTID = "W3868";
+        public string NEXT_PRODID = "W3860";
+        public Int32 HOST_PRODID = 0x3120;
+        public Int32 HOST_LOTID = 0x3128;
 
         private readonly int _LotIdLength = 8;
 
@@ -30,22 +35,17 @@ namespace EIF_Simulator.McProtocol.Logic
         private bool _firstScan = true;
 
 
-        public LotInfoRequestLogic(
-            int requestAddress,
-            int responseAddress,
-            int lotIdAddress,
-            int timeoutSeconds = 30)
+        public LotInfoRequestLogic(int Trigger, int ConfTrigger, int ConfTriggerAck, int timeoutSeconds = 30)
         {
-            _requestAddress = requestAddress;
-            _responseAddress = responseAddress;
-            _lotIdAddress = lotIdAddress;
-
-            _timeoutSeconds = timeoutSeconds;
+            TRIGGER = Trigger;
+            CONF_TRIGGER = ConfTrigger;
+            CONF_TRIGGER_ACK = ConfTriggerAck;
+            TIMEOUT = timeoutSeconds;
         }
 
         public void Scan(PlcBindingManager manager)
         {
-            if (manager.ReadBit(_requestAddress) == false)
+            if (manager.ReadBit(TRIGGER) == false)
             {
                 _state = HostRequestState.Idle;
                 return;
@@ -79,7 +79,7 @@ namespace EIF_Simulator.McProtocol.Logic
 
                 case HostRequestState.Alarm:
 
-                    manager.WriteBit(_requestAddress, false);
+                    manager.WriteBit(TRIGGER, false);
                     _state = HostRequestState.Idle;
 
                     break;
@@ -90,26 +90,29 @@ namespace EIF_Simulator.McProtocol.Logic
 
         private void CheckResponse(PlcBindingManager manager)
         {
-            bool response = manager.ReadBit(_responseAddress);
+            bool response = manager.ReadBit(CONF_TRIGGER);
 
             if (response)
             {
-                string strLotID = manager.ReadStringFromMemory(_lotIdAddress, _LotIdLength);
-                manager.SetValue("W3868", strLotID, _LotIdLength);
+                if (manager.ReadWord(CONF_TRIGGER_ACK) == ConfirmAck.OK)
+                {
+                    string strLotID = manager.ReadStringFromMemory(HOST_LOTID, _LotIdLength);
+                    manager.SetValue(NEXT_LOTID, strLotID, _LotIdLength);
 
-                string strProdID = manager.ReadStringFromMemory(0x3120, 5);
-                manager.SetValue("W3860", strProdID, 5);
+                    string strProdID = manager.ReadStringFromMemory(HOST_PRODID, 5);
+                    manager.SetValue(NEXT_PRODID, strProdID, 5);
+                }
 
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
                 return;
             }
 
-            if ((DateTime.Now - _requestTime).TotalSeconds >= _timeoutSeconds)
+            if ((DateTime.Now - _requestTime).TotalSeconds >= TIMEOUT)
             {
                 SetAlarm(true);
                 
                 _state = HostRequestState.Alarm;
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
             }
 
         }

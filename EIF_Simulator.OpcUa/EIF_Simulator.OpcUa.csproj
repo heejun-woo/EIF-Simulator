@@ -21,9 +21,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Logic\C1_Communication Management\" />
     <Folder Include="Logic\C2_State Management\" />
     <Folder Include="Logic\G1_Material Management\" />
     <Folder Include="Logic\G2_Carrier Management\" />
+    <Folder Include="Logic\G3_Lot Management\" />
     <Folder Include="Logic\G4_Cell Management\" />
     <Folder Include="Logic\G6_Equipment UBM Parts Management\" />
     <Folder Include="Logic\T1_Passive Machine State Management\" />

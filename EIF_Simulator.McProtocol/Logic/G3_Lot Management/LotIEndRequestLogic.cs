@@ -14,12 +14,9 @@ namespace EIF_Simulator.McProtocol.Logic
     public class LotIEndRequestLogic : IPlcLogic
     {
 
-        private readonly int _requestAddress;
-        private readonly int _responseAddress;
-
-        private readonly int _timeoutSeconds;
-
-        private readonly int _LotIdLength = 8;
+        private readonly int TRIGGER;
+        private readonly int CONF_TRIGGER;
+        private readonly int TIMEOUT;
 
         private HostRequestState _state = HostRequestState.Idle;
 
@@ -28,20 +25,17 @@ namespace EIF_Simulator.McProtocol.Logic
         private bool _firstScan = true;
 
 
-        public LotIEndRequestLogic(
-            int requestAddress,
-            int responseAddress,
-            int timeoutSeconds = 30)
+        public LotIEndRequestLogic(int Trigger, int ConfTrigger, int timeoutSeconds = 30)
         {
-            _requestAddress = requestAddress;
-            _responseAddress = responseAddress;
+            TRIGGER = Trigger;
+            CONF_TRIGGER = ConfTrigger;
 
-            _timeoutSeconds = timeoutSeconds;
+            TIMEOUT = timeoutSeconds;
         }
 
         public void Scan(PlcBindingManager manager)
         {
-            if (manager.ReadBit(_requestAddress) == false)
+            if (manager.ReadBit(TRIGGER) == false)
             {
                 _state = HostRequestState.Idle;
                 return;
@@ -75,7 +69,7 @@ namespace EIF_Simulator.McProtocol.Logic
 
                 case HostRequestState.Alarm:
 
-                    manager.WriteBit(_requestAddress, false);
+                    manager.WriteBit(TRIGGER, false);
                     _state = HostRequestState.Idle;
 
                     break;
@@ -86,21 +80,20 @@ namespace EIF_Simulator.McProtocol.Logic
 
         private void CheckResponse(PlcBindingManager manager)
         {
-            bool response = manager.ReadBit(_responseAddress);
+            bool response = manager.ReadBit(CONF_TRIGGER);
 
             if (response)
             {
-
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
                 return;
             }
 
-            if ((DateTime.Now - _requestTime).TotalSeconds >= _timeoutSeconds)
+            if ((DateTime.Now - _requestTime).TotalSeconds >= TIMEOUT)
             {
                 SetAlarm(true);
                 
                 _state = HostRequestState.Alarm;
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
             }
 
         }

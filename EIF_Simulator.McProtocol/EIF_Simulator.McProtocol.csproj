@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Logic\C2_State Management\" />
     <Folder Include="Logic\G1_Material Management\" />
     <Folder Include="Logic\G2_Carrier Management\" />
     <Folder Include="Logic\G4_Cell Management\" />

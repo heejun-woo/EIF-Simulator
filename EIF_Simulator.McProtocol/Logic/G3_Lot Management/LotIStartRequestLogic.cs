@@ -15,10 +15,17 @@ namespace EIF_Simulator.McProtocol.Logic
     public class LotIStartRequestLogic : IPlcLogic
     {
 
-        private readonly int _requestAddress;
-        private readonly int _responseAddress;
+        private readonly int TRIGGER;
+        private readonly int CONF_TRIGGER;
+        private readonly int CONF_TRIGGER_ACK;
+        private readonly int TIMEOUT;
 
-        private readonly int _timeoutSeconds;
+        public string NEXT_LOTID = "W3868";
+        public string CURRENT_LOTID = "W3878";
+        public string NEXT_PRODID = "W3860";
+        public string CURRENT_PRODID = "W3870";
+        public Int32 LOT_RUNNING = 0x380A;
+
 
         private readonly int _LotIdLength = 8;
 
@@ -29,20 +36,17 @@ namespace EIF_Simulator.McProtocol.Logic
         private bool _firstScan = true;
 
 
-        public LotIStartRequestLogic(
-            int requestAddress,
-            int responseAddress,
-            int timeoutSeconds = 30)
+        public LotIStartRequestLogic(int Trigger, int ConfTrigger, int ConfTriggerAck, int timeoutSeconds = 30)
         {
-            _requestAddress = requestAddress;
-            _responseAddress = responseAddress;
-
-            _timeoutSeconds = timeoutSeconds;
+            TRIGGER = Trigger;
+            CONF_TRIGGER = ConfTrigger;
+            CONF_TRIGGER_ACK = ConfTriggerAck;
+            TIMEOUT = timeoutSeconds;
         }
 
         public void Scan(PlcBindingManager manager)
         {
-            if (manager.ReadBit(_requestAddress) == false)
+            if (manager.ReadBit(TRIGGER) == false)
             {
                 _state = HostRequestState.Idle;
                 return;
@@ -76,7 +80,7 @@ namespace EIF_Simulator.McProtocol.Logic
 
                 case HostRequestState.Alarm:
 
-                    manager.WriteBit(_requestAddress, false);
+                    manager.WriteBit(TRIGGER, false);
                     _state = HostRequestState.Idle;
 
                     break;
@@ -87,30 +91,33 @@ namespace EIF_Simulator.McProtocol.Logic
 
         private void CheckResponse(PlcBindingManager manager)
         {
-            bool response = manager.ReadBit(_responseAddress);
+            bool response = manager.ReadBit(CONF_TRIGGER);
 
             if (response)
             {
-                string? strLotID = manager.GetValue<string>("W3868", _LotIdLength);
-                manager.SetValue("W3878", strLotID, _LotIdLength);
-                manager.SetValue("W3868", string.Empty, _LotIdLength);
+                if (manager.ReadWord(CONF_TRIGGER_ACK) == ConfirmAck.OK)
+                {
+                    string? strLotID = manager.GetValue<string>(NEXT_LOTID, _LotIdLength);
+                    manager.SetValue(CURRENT_LOTID, strLotID, _LotIdLength);
+                    manager.SetValue(NEXT_LOTID, string.Empty, _LotIdLength);
 
-                string? strProdID = manager.GetValue<string>("W3860", 5);
-                manager.SetValue("W3870", strProdID, 5);
-                manager.SetValue("W3860", string.Empty, 5);
+                    string? strProdID = manager.GetValue<string>(NEXT_PRODID, 5);
+                    manager.SetValue(CURRENT_PRODID, strProdID, 5);
+                    manager.SetValue(NEXT_PRODID, string.Empty, 5);
 
-                manager.WriteBit(0x380A, true);
+                    manager.WriteBit(LOT_RUNNING, true);
+                }
 
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
                 return;
             }
 
-            if ((DateTime.Now - _requestTime).TotalSeconds >= _timeoutSeconds)
+            if ((DateTime.Now - _requestTime).TotalSeconds >= TIMEOUT)
             {
                 SetAlarm(true);
                 
                 _state = HostRequestState.Alarm;
-                manager.WriteBit(_requestAddress, false);
+                manager.WriteBit(TRIGGER, false);
             }
 
         }

@@ -17,6 +17,14 @@ namespace EIF_Simulator.McProtocol.Logic
         private readonly Stopwatch _timer = new();
         private bool _firstScan = true;
 
+
+        public string EQP_Comm_Check = "W3800";
+        public Int32 Host_Comm_Check = 0x3000;
+        public Int32 Host_Comm_Check_conf = 0x3800;
+        public Int32 COMM_ON = 0x3808;
+        public Int32 COMM_OFF = 0x3809;
+
+
         int count = 0;
         public void Scan(PlcBindingManager manager)
         {
@@ -33,27 +41,27 @@ namespace EIF_Simulator.McProtocol.Logic
 
             if (count > 9)
             {
-                short check = manager.GetValue<short>("W3800");
+                short check = manager.GetValue<short>(EQP_Comm_Check);
 
-                if (manager.GetValue<short>("W3800") == 9999)
+                if (manager.GetValue<short>(EQP_Comm_Check) == 9999)
                 {
-                    manager.SetValue("W3800", (short)1);
+                    manager.SetValue(EQP_Comm_Check, (short)1);
                 }
-                else manager.SetValue("W3800", manager.GetValue<short>("W3800") + 1);
+                else manager.SetValue(EQP_Comm_Check, manager.GetValue<short>(EQP_Comm_Check) + 1);
 
                 count = 0;
             }
 
-            bool request = manager.ReadBit(0x3000);
+            bool request = manager.ReadBit(Host_Comm_Check);
 
             // Rising Edge
             if (request != _lastRequest)
             {
-                manager.WriteBit(0x3800, request);
+                manager.WriteBit(Host_Comm_Check_conf, request);
 
 
-                manager.WriteBit(0x3808, true);
-                manager.WriteBit(0x3809, false);
+                manager.WriteBit(COMM_ON, true);
+                manager.WriteBit(COMM_OFF, false);
 
                 _lastRequestTime = DateTime.Now;
                 _lastRequest = request;
@@ -63,8 +71,8 @@ namespace EIF_Simulator.McProtocol.Logic
                 // Timeout
                 if ((DateTime.Now - _lastRequestTime).TotalSeconds > 30)
                 {
-                    manager.WriteBit(0x3808, false);
-                    manager.WriteBit(0x3809, true);
+                    manager.WriteBit(COMM_ON, false);
+                    manager.WriteBit(COMM_OFF, true);
                 }
             }
         }
