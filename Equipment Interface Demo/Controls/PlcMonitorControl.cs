@@ -57,29 +57,29 @@ namespace Equipment_Interface_Demo
             Controls.Add(_title);
         }
 
-        public void Write(string address, object value)
+        public void HostWrite(string address, object value)
         {
-            Append("WRITE", address, value, Color.DeepSkyBlue);
+            Append("HOST :", address, value, Color.DeepSkyBlue);
         }
 
-        public void Read(string address, object value)
+        public void EqpWrite(string address, object value)
         {
-            Append("READ", address, value, Color.LightGreen);
+            Append("EQP :", address, value, Color.LightGreen);
         }
 
         public void Event(string message)
         {
-            AppendMessage("EVENT", message, Color.Gold);
+            AppendMessage("EVENT :", message, Color.Gold);
         }
 
         public void Error(string message)
         {
-            AppendMessage("ERROR", message, Color.OrangeRed);
+            AppendMessage("ERROR :", message, Color.OrangeRed);
         }
 
         public void Info(string message)
         {
-            AppendMessage("INFO", message, Color.LightGray);
+            AppendMessage("INFO :", message, Color.LightGray);
         }
 
         public void Clear()
@@ -104,7 +104,7 @@ namespace Equipment_Interface_Demo
                 DateTime.Now,
                 type,
                 address,
-                FormatValue(value));
+                "[ " + FormatValue(value) + " ]");
 
             AppendLine(text, color);
         }
@@ -156,7 +156,7 @@ namespace Equipment_Interface_Demo
             if (value is bool)
                 return (bool)value ? "ON" : "OFF";
 
-            return value.ToString();
+            return value.ToString(); 
         }
     }
 }
