@@ -9,4 +9,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Update="Popup\LotEndTypeCut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Popup\EndWorkType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Popup\SubStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

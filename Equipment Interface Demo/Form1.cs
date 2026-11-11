@@ -25,6 +25,8 @@ namespace Equipment_Interface_Demo
             InitializeCarrierRWLayout(tabCarrierRU);
             InitializeCarrierRLLayout(tabCarrierRL);
 
+            InitializeLotControlLayout(tabLotControl);
+
         }
 
 
@@ -632,7 +634,6 @@ namespace Equipment_Interface_Demo
         }
         #endregion
 
-
         #region Carrier - UW
         private PlcMonitorControl _PlcUWCarrier;
 
@@ -788,6 +789,8 @@ namespace Equipment_Interface_Demo
 
         private void UW1_JobEnd(int EndType = 1)
         {
+            if (EndLotType != 0) EndType = EndLotType;
+
             string TRIGER = "Carrier Job End Report_01";
             string CONF = "Carrier Job End Confirm_01";
 
@@ -806,6 +809,19 @@ namespace Equipment_Interface_Demo
             }
 
             _PlcUWCarrier.EqpWrite("UW1 Auto Carrier Change State", ckUWAutosplicing.Checked);
+
+            _PlcLotControl.Info("UW1 Job End Data Move - UW1 Data >> UW Input Lot 01");
+            _PlcLotControl.EqpWrite("UW Input Lot Qty", 1);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Carrier ID", txtUW1Carrier.Text);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Carrier-Lot ID", txtUW1CarrierLot.Text);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 End Core AB", rbUW1_1.Checked ? true : false);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Initial WIP Qty", "UW1 Initial WIP Qty Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Work Qty", "UW1 Work Qty Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Remaining Qty", "UW1 Work Remaining Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Previous Input Loss", "UW1 Previous Input Loss Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Fixed Loss", "UW1 Fixed Loss Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Job End Type", "UW1 Job End Type");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Working Direction", "UW1 Working Direction");
 
             _PlcUWCarrier.EqpWrite(TRIGER, true);
             _PlcUWCarrier.Info($"Confirm signal waiting");
@@ -1013,6 +1029,8 @@ namespace Equipment_Interface_Demo
 
         private void UW2_JobEnd(int EndType = 1)
         {
+
+            if (EndLotType != 0) EndType = EndLotType;
             string TRIGER = "Carrier Job End Report_02";
             string CONF = "Carrier Job End Confirm_02";
 
@@ -1031,6 +1049,19 @@ namespace Equipment_Interface_Demo
             }
 
             _PlcUWCarrier.EqpWrite("UW2 Auto Carrier Change State", ckUWAutosplicing.Checked);
+
+            _PlcLotControl.Info("UW2 Job End Data Move - UW1 Data >> UW Input Lot 01");
+            _PlcLotControl.EqpWrite("UW Input Lot Qty", 1);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Carrier ID", txtUW2Carrier.Text);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Carrier-Lot ID", txtUW2CarrierLot.Text);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 End Core AB", rbUW1_1.Checked ? true : false);
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Initial WIP Qty", "UW2 Initial WIP Qty Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Work Qty", "UW2 Work Qty Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Remaining Qty", "UW2 Work Remaining Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Previous Input Loss", "UW2 Previous Input Loss Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Fixed Loss", "UW2 Fixed Loss Value");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Job End Type", "UW2 Job End Type");
+            _PlcLotControl.EqpWrite("UW Input Lot-01 Working Direction", "UW2 Working Direction");
 
             _PlcUWCarrier.EqpWrite(TRIGER, true);
             _PlcUWCarrier.Info($"Confirm signal waiting");
@@ -1642,7 +1673,489 @@ namespace Equipment_Interface_Demo
 
             txtRL2Carrier.ReadOnly = false;
         }
-        #endregion 
+        #endregion
+        #endregion
+
+        #region Lot Control
+        private PlcMonitorControl _PlcLotControl;
+
+
+        private void InitializeLotControlLayout(TabPage page)
+        {
+            SplitContainer _splitContainer = new SplitContainer();
+
+            _splitContainer.Dock = DockStyle.Fill;
+            _splitContainer.Orientation = Orientation.Vertical;
+
+            _splitContainer.SplitterDistance = _splitContainer.ClientSize.Width / 3;
+
+            _splitContainer.IsSplitterFixed = false;
+
+            page.Controls.Add(_splitContainer);
+
+            // 오른쪽 PLC Monitor
+            _PlcLotControl = new PlcMonitorControl();
+            _PlcLotControl.Dock = DockStyle.Fill;
+
+            _splitContainer.Panel2.Controls.Add(_PlcLotControl);
+        }
+
+        bool bPassPopup = false;
+        private void btnLotStart_Click(object sender, EventArgs e)
+        {
+
+            #region 조건 체크
+            if (_bLotRunning)
+            {
+                _PlcLotControl.Error("Lot Running, so I can't start Lot.");
+                return;
+            }
+
+            if (rbUW1_1.Checked)
+            {
+                if (UW1_JOB == false)
+                {
+                    _PlcLotControl.Error("UW is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+            else
+            {
+                if (UW2_JOB == false)
+                {
+                    _PlcLotControl.Error("UW is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+
+            if (rbRU1.Checked)
+            {
+                if (RU1_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RU2_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+
+            if (rbRL1.Checked)
+            {
+                if (RL1_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RL2_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't start Lot.");
+                    return;
+                }
+            }
+            #endregion
+
+
+            if (bPassPopup)
+            {
+                _PlcLotControl.EqpWrite("Current Work Type", 1);
+                txtWorkType.Text = "1";
+            }
+            else
+            {
+                using (var popup = new CurrentWorkType())
+                {
+                    if (popup.ShowDialog() == DialogResult.OK)
+                    {
+                        _PlcLotControl.EqpWrite("Current Work Type", popup.iSelectValue);
+                        txtWorkType.Text = popup.iSelectValue.ToString();
+                    }
+                    else return;
+                }
+            }
+
+            string CSTID = txtRL1Carrier.Text;
+
+            string TRIGER = "Lot Start Report";
+            string CONF = "Lot Start Confirm";
+            string ACK = "Lot Start Confirm ACK";
+            string RANDOM = DateTime.Now.ToString("HHmmss");
+
+
+            _PlcLotControl.Event("##### LOT START REPORT STRART #####");
+            _PlcLotControl.EqpWrite(TRIGER, true);
+            _PlcLotControl.Info($"Confirm signal waiting");
+
+            Thread.Sleep(100);
+
+            if (ckRL1_TimeOut.Checked)
+            {
+                _PlcLotControl.Info($"If there is no response for 30 seconds, it times out.");
+
+                _PlcLotControl.EqpWrite(TRIGER, false);
+                _PlcLotControl.Info($"{TRIGER} Report Completed");
+
+                _PlcLotControl.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 1.02]");
+                AddAlarmSetCode(10004);
+            }
+
+            if (ckRL1_NG.Checked)
+            {
+                _PlcLotControl.HostWrite(ACK, 11);
+                _PlcLotControl.HostWrite(CONF, true);
+
+                _PlcLotControl.Info($"Since it is an ACK-11 NG, clear data");
+                _PlcLotControl.EqpWrite(TRIGER, false);
+
+                Thread.Sleep(100);
+
+                _PlcLotControl.HostWrite(CONF, false);
+                _PlcLotControl.Info($"{TRIGER} Report Completed");
+            }
+            else
+            {
+                //DATA
+
+                _PlcLotControl.HostWrite(ACK, 10);
+
+                _PlcLotControl.HostWrite("Product ID", "PROD" + RANDOM);
+                _PlcLotControl.HostWrite("Upper Lot ID", "UPPER" + RANDOM);
+                _PlcLotControl.HostWrite("Lower Lot ID", "LOWER" + RANDOM);
+                _PlcLotControl.HostWrite("QA Material", true);
+                _PlcLotControl.HostWrite(CONF, true);
+
+                _PlcLotControl.Info($"Actions after receiving the host signal");
+
+                if (rbRU1.Checked)
+                {
+                    _PlcLotControl.EqpWrite("RU1 Carrier-Lot ID", "UPPER" + RANDOM);
+                    txtRU1CarrierLot.Text = "UPPER" + RANDOM;
+                }
+                else
+                {
+                    _PlcLotControl.EqpWrite("RU2 Carrier-Lot ID", "UPPER" + RANDOM);
+                    txtRU2CarrierLot.Text = "UPPER" + RANDOM;
+                }
+                txtUpperLot.Text = "UPPER" + RANDOM;
+
+                if (rbRL1.Checked)
+                {
+                    _PlcLotControl.EqpWrite("RL1 Carrier-Lot ID", "LOWER" + RANDOM);
+                    txtRL1CarrierLot.Text = "LOWER" + RANDOM;
+                }
+                else
+                {
+                    _PlcLotControl.EqpWrite("RL2 Carrier-Lot ID", "LOWER" + RANDOM);
+                    txtRL2CarrierLot.Text = "LOWER" + RANDOM;
+                }
+                txtLowerLot.Text = "LOWER" + RANDOM;
+
+                _bLotRunning = true;
+                SetLabelBackColor(lbLotRunning, _bLotRunning);
+
+                ckQA.Checked = true;
+
+
+                _PlcLotControl.EqpWrite(TRIGER, false);
+
+
+                Thread.Sleep(100);
+
+                _PlcLotControl.HostWrite(CONF, false);
+                _PlcLotControl.Info($"{TRIGER} Report Completed");
+
+                bPassPopup = false;
+
+            }
+        }
+
+
+        private void LotEnd(bool bCut = false)
+        {
+
+            if (txtWorkType.Text.Equals("1"))
+            {
+                using (var popup = new EndWorkType())
+                {
+                    if (popup.ShowDialog() == DialogResult.OK)
+                    {
+                        _PlcLotControl.EqpWrite("Lot End Work Type", popup.iSelectValue);
+                        txtWorkType.Text = popup.iSelectValue.ToString();
+                    }
+                    else return;
+                }
+            }
+
+            string CSTID = txtRL1Carrier.Text;
+
+            string TRIGER = "Lot End Report";
+            string CONF = "Lot End Confirm";
+            string ACK = "Lot End Confirm ACK";
+            string RANDOM = DateTime.Now.ToString("HHmmss");
+
+            _PlcLotControl.EqpWrite($"Cut", bCut);
+            _PlcLotControl.EqpWrite(TRIGER, true);
+            _PlcLotControl.Info($"Confirm signal waiting");
+
+            Thread.Sleep(100);
+
+            if (ckRL1_TimeOut.Checked)
+            {
+                _PlcLotControl.Info($"If there is no response for 30 seconds, it times out.");
+
+                _PlcLotControl.EqpWrite(TRIGER, false);
+                _PlcLotControl.Info($"{TRIGER} Report Completed");
+
+                _PlcLotControl.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 1.03]");
+                AddAlarmSetCode(10004);
+            }
+
+            //DATA
+
+            _PlcLotControl.HostWrite(CONF, true);
+
+            _PlcLotControl.Info($"Actions after receiving the host signal");
+
+
+            txtUpperLot.Text = "";
+            txtLowerLot.Text = "";
+            txtWorkType.Text = "";
+
+            _bLotRunning = false;
+            SetLabelBackColor(lbLotRunning, _bLotRunning);
+            ckQA.Checked = false;
+
+            _PlcLotControl.EqpWrite(TRIGER, false);
+
+
+            Thread.Sleep(100);
+
+            _PlcLotControl.HostWrite(CONF, false);
+            _PlcLotControl.Info($"{TRIGER} Report Completed");
+
+            if (rbRL1.Checked)
+            {
+                RL1_ID = false;
+                SetLabelBackColor(lbRL1_ID_stat, RL1_ID);
+            }
+            else
+            {
+                RL2_ID = false;
+                SetLabelBackColor(lbRL2_ID_stat, RL2_ID);
+            }
+
+            if (rbRU1.Checked)
+            {
+                RU1_ID = false;
+                SetLabelBackColor(lbRU1_ID_stat, RU1_ID);
+            }
+            else
+            {
+                RU2_ID = false;
+                SetLabelBackColor(lbRU2_ID_stat, RU2_ID);
+            }
+
+
+            EndLotType = 0;
+
+        }
+
+        private void btnLotEnd3_Click(object sender, EventArgs e)
+        {
+            if (_bLotRunning == false)
+            {
+                _PlcLotControl.Error("The lot is not in running state.");
+                return;
+            }
+
+            _PlcLotControl.Event("##### UW JOB END REPORT STRART #####");
+            if (UW1_JOB) UW1_JobEnd(2);
+            else UW2_JobEnd(2);
+
+            _PlcLotControl.Event("##### LOT END REPORT STRART #####");
+            LotEnd();
+        }
+
+        private void btnLotEnd2_Click(object sender, EventArgs e)
+        {
+            #region 조건체크
+            if (_bLotRunning == false)
+            {
+                _PlcLotControl.Error("The lot is not in running state.");
+                return;
+            }
+
+            if (rbRU1.Checked)
+            {
+                if (RU2_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't Lot division.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RU1_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't Lot division.");
+                    return;
+                }
+            }
+
+            if (rbRL1.Checked)
+            {
+                if (RL2_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't Lot division.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RL1_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't Lot division.");
+                    return;
+                }
+            }
+            #endregion
+
+            using (var popup = new LotEndTypeCut())
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    _PlcLotControl.EqpWrite("Lot End Output Type", popup.iSelectValue);
+                    EndLotType = popup.iSelectValue;
+                }
+                else return;
+            }
+
+            _PlcLotControl.Event("##### UW JOB END REPORT STRART #####");
+            if (UW1_JOB) UW1_JobEnd();
+            else UW2_JobEnd();
+
+            _PlcLotControl.Event("##### LOT END REPORT STRART #####");
+            LotEnd(true);
+
+
+            _PlcLotControl.Event("##### RU Core Change #####");
+
+            if (rbRU1.Checked) rbRU2.Checked = true;
+            else rbRU1.Checked = true;
+
+            _PlcLotControl.Event("##### RL Core Change #####");
+            if (rbRL1.Checked) rbRL2.Checked = true;
+            else rbRL1.Checked = true;
+
+            _PlcLotControl.Event("##### UW ID Report #####");
+            button1_Click(null, null);
+
+            bPassPopup = true;
+            _PlcLotControl.Event("##### Next Lot Start #####");
+            btnLotStart_Click(btnLotStart, null);
+
+        }
+        int EndLotType = 0;
+        private void btnLotEnd1_Click(object sender, EventArgs e)
+        {
+            #region 조건체크
+            if (_bLotRunning == false)
+            {
+                _PlcLotControl.Error("The lot is not in running state.");
+                return;
+            }
+            if (rbUW1_1.Checked)
+            {
+                if (UW2_ID == false)
+                {
+                    _PlcLotControl.Error("UW is not ready, so I can't Lot End.");
+                    return;
+                }
+            }
+            else
+            {
+                if (UW1_ID == false)
+                {
+                    _PlcLotControl.Error("UW is not ready, so I can't Lot End.");
+                    return;
+                }
+
+            }
+            if (rbRU1.Checked)
+            {
+                if (RU2_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't Lot End.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RU1_ID == false)
+                {
+                    _PlcLotControl.Error("RU is not ready, so I can't Lot End.");
+                    return;
+                }
+            }
+
+            if (rbRL1.Checked)
+            {
+                if (RL2_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't Lot End.");
+                    return;
+                }
+            }
+            else
+            {
+                if (RL1_ID == false)
+                {
+                    _PlcLotControl.Error("RL is not ready, so I can't Lot End.");
+                    return;
+                }
+            }
+            #endregion
+
+            using (var popup = new LotEndTypeCut())
+            {
+                if (popup.ShowDialog() == DialogResult.OK)
+                {
+                    _PlcLotControl.EqpWrite("Lot End Output Type", popup.iSelectValue);
+                    EndLotType = popup.iSelectValue;
+                }
+                else return;
+            }
+
+            _PlcLotControl.Event("##### UW Core Change #####");
+            _PlcLotControl.Event("##### UW JOB END REPORT AND NEXT UW JOB REPORT STRART #####");
+            if (rbUW1_1.Checked) rbUW1_2.Checked = true;
+            else rbUW1_1.Checked = true;
+
+            _PlcLotControl.Event("##### LOT END REPORT STRART #####");
+            LotEnd(true);
+
+
+            _PlcLotControl.Event("##### RU Core Change #####");
+
+            if (rbRU1.Checked) rbRU2.Checked = true;
+            else rbRU1.Checked = true;
+
+            _PlcLotControl.Event("##### RL Core Change #####");
+            if (rbRL1.Checked) rbRL2.Checked = true;
+            else rbRL1.Checked = true;
+
+            bPassPopup = true;
+            _PlcLotControl.Event("##### Next Lot Start #####");
+            btnLotStart_Click(btnLotStart, null);
+        } 
         #endregion
     }
 

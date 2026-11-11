@@ -140,6 +140,27 @@
             label10 = new Label();
             btnRLCarrier1 = new Button();
             tabLotControl = new TabPage();
+            btnLotEnd3 = new Button();
+            btnLotEnd2 = new Button();
+            ckLotTimeOut = new CheckBox();
+            ckLotNG = new CheckBox();
+            lbLotRunning = new Label();
+            btnLotEnd1 = new Button();
+            groupBox11 = new GroupBox();
+            ckCut = new CheckBox();
+            txtEndOutType = new TextBox();
+            label18 = new Label();
+            txtEndWorkType = new TextBox();
+            label17 = new Label();
+            btnLotStart = new Button();
+            groupBox10 = new GroupBox();
+            txtWorkType = new TextBox();
+            label16 = new Label();
+            ckQA = new CheckBox();
+            txtLowerLot = new TextBox();
+            label14 = new Label();
+            txtUpperLot = new TextBox();
+            label13 = new Label();
             TimerCommchk = new System.Windows.Forms.Timer(components);
             TimerUserStop = new System.Windows.Forms.Timer(components);
             TimerAlarmSet = new System.Windows.Forms.Timer(components);
@@ -166,6 +187,9 @@
             groupBox7.SuspendLayout();
             groupBox8.SuspendLayout();
             groupBox9.SuspendLayout();
+            tabLotControl.SuspendLayout();
+            groupBox11.SuspendLayout();
+            groupBox10.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -1369,6 +1393,15 @@
             // 
             // tabLotControl
             // 
+            tabLotControl.Controls.Add(btnLotEnd3);
+            tabLotControl.Controls.Add(btnLotEnd2);
+            tabLotControl.Controls.Add(ckLotTimeOut);
+            tabLotControl.Controls.Add(ckLotNG);
+            tabLotControl.Controls.Add(lbLotRunning);
+            tabLotControl.Controls.Add(btnLotEnd1);
+            tabLotControl.Controls.Add(groupBox11);
+            tabLotControl.Controls.Add(btnLotStart);
+            tabLotControl.Controls.Add(groupBox10);
             tabLotControl.Location = new Point(4, 44);
             tabLotControl.Name = "tabLotControl";
             tabLotControl.Padding = new Padding(3);
@@ -1376,6 +1409,225 @@
             tabLotControl.TabIndex = 7;
             tabLotControl.Text = "2-4 Lot Management";
             tabLotControl.UseVisualStyleBackColor = true;
+            // 
+            // btnLotEnd3
+            // 
+            btnLotEnd3.Location = new Point(8, 356);
+            btnLotEnd3.Name = "btnLotEnd3";
+            btnLotEnd3.Size = new Size(212, 23);
+            btnLotEnd3.TabIndex = 27;
+            btnLotEnd3.Text = "Step 2-3 Manual Lot End";
+            btnLotEnd3.UseVisualStyleBackColor = true;
+            btnLotEnd3.Click += btnLotEnd3_Click;
+            // 
+            // btnLotEnd2
+            // 
+            btnLotEnd2.Location = new Point(8, 327);
+            btnLotEnd2.Name = "btnLotEnd2";
+            btnLotEnd2.Size = new Size(212, 23);
+            btnLotEnd2.TabIndex = 26;
+            btnLotEnd2.Text = "Step 2-2 RW Change Lot End";
+            btnLotEnd2.UseVisualStyleBackColor = true;
+            btnLotEnd2.Click += btnLotEnd2_Click;
+            // 
+            // ckLotTimeOut
+            // 
+            ckLotTimeOut.AutoSize = true;
+            ckLotTimeOut.Location = new Point(162, 31);
+            ckLotTimeOut.Name = "ckLotTimeOut";
+            ckLotTimeOut.Size = new Size(76, 19);
+            ckLotTimeOut.TabIndex = 25;
+            ckLotTimeOut.Text = "Time Out";
+            ckLotTimeOut.UseVisualStyleBackColor = true;
+            // 
+            // ckLotNG
+            // 
+            ckLotNG.AutoSize = true;
+            ckLotNG.Location = new Point(114, 31);
+            ckLotNG.Name = "ckLotNG";
+            ckLotNG.Size = new Size(43, 19);
+            ckLotNG.TabIndex = 24;
+            ckLotNG.Text = "NG";
+            ckLotNG.UseVisualStyleBackColor = true;
+            // 
+            // lbLotRunning
+            // 
+            lbLotRunning.AutoSize = true;
+            lbLotRunning.BackColor = Color.Gray;
+            lbLotRunning.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbLotRunning.ForeColor = SystemColors.Info;
+            lbLotRunning.Location = new Point(23, 34);
+            lbLotRunning.Name = "lbLotRunning";
+            lbLotRunning.Size = new Size(68, 13);
+            lbLotRunning.TabIndex = 11;
+            lbLotRunning.Text = "Lot Running";
+            // 
+            // btnLotEnd1
+            // 
+            btnLotEnd1.Location = new Point(8, 298);
+            btnLotEnd1.Name = "btnLotEnd1";
+            btnLotEnd1.Size = new Size(212, 23);
+            btnLotEnd1.TabIndex = 11;
+            btnLotEnd1.Text = "Step 2-1 UW / RW Change Lot End";
+            btnLotEnd1.UseVisualStyleBackColor = true;
+            btnLotEnd1.Click += btnLotEnd1_Click;
+            // 
+            // groupBox11
+            // 
+            groupBox11.Controls.Add(ckCut);
+            groupBox11.Controls.Add(txtEndOutType);
+            groupBox11.Controls.Add(label18);
+            groupBox11.Controls.Add(txtEndWorkType);
+            groupBox11.Controls.Add(label17);
+            groupBox11.Location = new Point(6, 386);
+            groupBox11.Name = "groupBox11";
+            groupBox11.Size = new Size(243, 108);
+            groupBox11.TabIndex = 10;
+            groupBox11.TabStop = false;
+            groupBox11.Text = "Lot End Data";
+            // 
+            // ckCut
+            // 
+            ckCut.AutoSize = true;
+            ckCut.Enabled = false;
+            ckCut.Location = new Point(15, 81);
+            ckCut.Name = "ckCut";
+            ckCut.Size = new Size(45, 19);
+            ckCut.TabIndex = 16;
+            ckCut.Text = "Cut";
+            ckCut.UseVisualStyleBackColor = true;
+            // 
+            // txtEndOutType
+            // 
+            txtEndOutType.Font = new Font("맑은 고딕", 8.25F);
+            txtEndOutType.Location = new Point(138, 50);
+            txtEndOutType.Name = "txtEndOutType";
+            txtEndOutType.ReadOnly = true;
+            txtEndOutType.Size = new Size(92, 22);
+            txtEndOutType.TabIndex = 15;
+            // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Font = new Font("맑은 고딕", 8.25F);
+            label18.Location = new Point(12, 53);
+            label18.Name = "label18";
+            label18.Size = new Size(120, 13);
+            label18.TabIndex = 14;
+            label18.Text = "Lot End Output Type :";
+            // 
+            // txtEndWorkType
+            // 
+            txtEndWorkType.Font = new Font("맑은 고딕", 8.25F);
+            txtEndWorkType.Location = new Point(127, 22);
+            txtEndWorkType.Name = "txtEndWorkType";
+            txtEndWorkType.ReadOnly = true;
+            txtEndWorkType.Size = new Size(103, 22);
+            txtEndWorkType.TabIndex = 13;
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Font = new Font("맑은 고딕", 8.25F);
+            label17.Location = new Point(12, 25);
+            label17.Name = "label17";
+            label17.Size = new Size(111, 13);
+            label17.TabIndex = 12;
+            label17.Text = "Lot End Work Type :";
+            // 
+            // btnLotStart
+            // 
+            btnLotStart.Location = new Point(8, 68);
+            btnLotStart.Name = "btnLotStart";
+            btnLotStart.Size = new Size(212, 23);
+            btnLotStart.TabIndex = 9;
+            btnLotStart.Text = "Step 1 - Lot Start";
+            btnLotStart.UseVisualStyleBackColor = true;
+            btnLotStart.Click += btnLotStart_Click;
+            // 
+            // groupBox10
+            // 
+            groupBox10.Controls.Add(txtWorkType);
+            groupBox10.Controls.Add(label16);
+            groupBox10.Controls.Add(ckQA);
+            groupBox10.Controls.Add(txtLowerLot);
+            groupBox10.Controls.Add(label14);
+            groupBox10.Controls.Add(txtUpperLot);
+            groupBox10.Controls.Add(label13);
+            groupBox10.Location = new Point(8, 109);
+            groupBox10.Name = "groupBox10";
+            groupBox10.Size = new Size(243, 144);
+            groupBox10.TabIndex = 8;
+            groupBox10.TabStop = false;
+            groupBox10.Text = "Current Lot Data";
+            // 
+            // txtWorkType
+            // 
+            txtWorkType.Font = new Font("맑은 고딕", 8.25F);
+            txtWorkType.Location = new Point(127, 103);
+            txtWorkType.Name = "txtWorkType";
+            txtWorkType.ReadOnly = true;
+            txtWorkType.Size = new Size(103, 22);
+            txtWorkType.TabIndex = 13;
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new Font("맑은 고딕", 8.25F);
+            label16.Location = new Point(12, 106);
+            label16.Name = "label16";
+            label16.Size = new Size(109, 13);
+            label16.TabIndex = 12;
+            label16.Text = "Current Work Type :";
+            // 
+            // ckQA
+            // 
+            ckQA.AutoSize = true;
+            ckQA.Enabled = false;
+            ckQA.Location = new Point(15, 78);
+            ckQA.Name = "ckQA";
+            ckQA.Size = new Size(90, 19);
+            ckQA.TabIndex = 10;
+            ckQA.Text = "QA Material";
+            ckQA.UseVisualStyleBackColor = true;
+            // 
+            // txtLowerLot
+            // 
+            txtLowerLot.Font = new Font("맑은 고딕", 8.25F);
+            txtLowerLot.Location = new Point(98, 50);
+            txtLowerLot.Name = "txtLowerLot";
+            txtLowerLot.ReadOnly = true;
+            txtLowerLot.Size = new Size(132, 22);
+            txtLowerLot.TabIndex = 9;
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Font = new Font("맑은 고딕", 8.25F);
+            label14.Location = new Point(12, 53);
+            label14.Name = "label14";
+            label14.Size = new Size(78, 13);
+            label14.TabIndex = 8;
+            label14.Text = "Lower Lot ID :";
+            // 
+            // txtUpperLot
+            // 
+            txtUpperLot.Font = new Font("맑은 고딕", 8.25F);
+            txtUpperLot.Location = new Point(98, 22);
+            txtUpperLot.Name = "txtUpperLot";
+            txtUpperLot.ReadOnly = true;
+            txtUpperLot.Size = new Size(132, 22);
+            txtUpperLot.TabIndex = 7;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("맑은 고딕", 8.25F);
+            label13.Location = new Point(12, 25);
+            label13.Name = "label13";
+            label13.Size = new Size(80, 13);
+            label13.TabIndex = 6;
+            label13.Text = "Upper Lot ID :";
             // 
             // TimerCommchk
             // 
@@ -1440,6 +1692,12 @@
             groupBox8.PerformLayout();
             groupBox9.ResumeLayout(false);
             groupBox9.PerformLayout();
+            tabLotControl.ResumeLayout(false);
+            tabLotControl.PerformLayout();
+            groupBox11.ResumeLayout(false);
+            groupBox11.PerformLayout();
+            groupBox10.ResumeLayout(false);
+            groupBox10.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1558,5 +1816,26 @@
         private TextBox txtRL1CarrierLot;
         private Label label10;
         private Button btnRLCarrier1;
+        private GroupBox groupBox10;
+        private TextBox txtUpperLot;
+        private Label label13;
+        private Button btnLotEnd1;
+        private Button btnLotStart;
+        private TextBox txtWorkType;
+        private Label label16;
+        private Label lbLotRunning;
+        private CheckBox ckQA;
+        private TextBox txtLowerLot;
+        private Label label14;
+        private GroupBox groupBox11;
+        private CheckBox ckCut;
+        private TextBox txtEndOutType;
+        private Label label18;
+        private TextBox txtEndWorkType;
+        private Label label17;
+        private CheckBox ckLotTimeOut;
+        private CheckBox ckLotNG;
+        private Button btnLotEnd3;
+        private Button btnLotEnd2;
     }
 }
