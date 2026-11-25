@@ -10,6 +10,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="Packaging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Popup\NgSelect.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Popup\LotEndTypeCut.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -19,6 +25,12 @@
     <Compile Update="Popup\SubStat.cs">
       <SubType>Form</SubType>
     </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Packaging.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

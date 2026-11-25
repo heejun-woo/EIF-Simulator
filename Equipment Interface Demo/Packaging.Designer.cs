@@ -1,6 +1,6 @@
 ﻿namespace Equipment_Interface_Demo
 {
-    partial class Form1
+    partial class Packaging
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Packaging));
             tabControl1 = new TabControl();
             tabCommChk = new TabPage();
             lbCommChk = new Label();
@@ -64,81 +64,61 @@
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            tabCarrier = new TabPage();
-            button2 = new Button();
-            button1 = new Button();
-            ckUW2_TimeOut = new CheckBox();
-            ckUW2_NG = new CheckBox();
-            ckUW1_TimeOut = new CheckBox();
-            ckUW1_NG = new CheckBox();
-            groupBox3 = new GroupBox();
-            lbUW2_JOB_stat = new Label();
-            lbUW2_ID_stat = new Label();
-            txtUW2Carrier = new TextBox();
-            label7 = new Label();
-            txtUW2CarrierLot = new TextBox();
-            label8 = new Label();
-            btnUWCarrier2 = new Button();
+            tabMtrl = new TabPage();
+            btnMtrlStep4 = new Button();
+            btnMtrlStep3 = new Button();
             groupBox2 = new GroupBox();
-            ckUWAutosplicing = new CheckBox();
-            rbUW1_2 = new RadioButton();
-            rbUW1_1 = new RadioButton();
+            rbMtrlOutType2 = new RadioButton();
+            rbMtrlOutType1 = new RadioButton();
+            btnMtrlStep2 = new Button();
+            ckMtrl_TimeOut = new CheckBox();
+            ckMtrl_NG = new CheckBox();
             groupBox1 = new GroupBox();
-            lbUW1_JOB_stat = new Label();
-            lbUW1_ID_stat = new Label();
-            txtUW1Carrier = new TextBox();
+            lbMtrlJobStat = new Label();
+            lbMtrlIdStat = new Label();
+            txtMtrlID = new TextBox();
             label1 = new Label();
-            txtUW1CarrierLot = new TextBox();
+            txtMtrlWip = new TextBox();
             label2 = new Label();
-            btnUWCarrier1 = new Button();
+            btnMtrlStep1 = new Button();
             tabCarrierRU = new TabPage();
-            button9 = new Button();
-            button10 = new Button();
-            ckRU2_TimeOut = new CheckBox();
-            ckRU2_NG = new CheckBox();
+            btnInCarrier3 = new Button();
+            panel2 = new Panel();
+            lbInCarrierOutType3 = new Label();
+            lbInCarrierOutType2 = new Label();
+            btnInCarrier2 = new Button();
             ckRU1_TimeOut = new CheckBox();
             ckRU1_NG = new CheckBox();
-            groupBox4 = new GroupBox();
-            lbRU2_ID_stat = new Label();
-            txtRU2Carrier = new TextBox();
-            label5 = new Label();
-            txtRU2CarrierLot = new TextBox();
-            label6 = new Label();
-            btnRUCarrier2 = new Button();
-            groupBox5 = new GroupBox();
-            rbRU2 = new RadioButton();
-            rbRU1 = new RadioButton();
             groupBox6 = new GroupBox();
-            lbRU1_ID_stat = new Label();
-            txtRU1Carrier = new TextBox();
+            txtInCarrierWork = new TextBox();
+            label23 = new Label();
+            txtInCarrierWip = new TextBox();
+            label5 = new Label();
+            lbInCarrierJobStat = new Label();
+            lbInCarrierIdStat = new Label();
+            txtInCarrierID = new TextBox();
             label11 = new Label();
-            txtRU1CarrierLot = new TextBox();
+            txtInCarrierLot = new TextBox();
             label12 = new Label();
-            btnRUCarrier1 = new Button();
+            btnInCarrier1 = new Button();
             tabCarrierRL = new TabPage();
-            btnRLCarrier2LOT = new Button();
-            btnRLCarrier1Out = new Button();
-            ckRL2_TimeOut = new CheckBox();
-            ckRL2_NG = new CheckBox();
-            ckRL1_TimeOut = new CheckBox();
-            ckRL1_NG = new CheckBox();
-            groupBox7 = new GroupBox();
-            lbRL2_ID_stat = new Label();
-            txtRL2Carrier = new TextBox();
-            label3 = new Label();
-            txtRL2CarrierLot = new TextBox();
-            label4 = new Label();
-            btnRLCarrier2 = new Button();
-            groupBox8 = new GroupBox();
-            rbRL2 = new RadioButton();
-            rbRL1 = new RadioButton();
-            groupBox9 = new GroupBox();
-            lbRL1_ID_stat = new Label();
-            txtRL1Carrier = new TextBox();
-            label9 = new Label();
-            txtRL1CarrierLot = new TextBox();
+            btnOutCarrier3 = new Button();
+            panel3 = new Panel();
+            lbOutCarrierOutType6 = new Label();
+            lbOutCarrierOutType5 = new Label();
+            btnOutCarrier2 = new Button();
+            groupBox3 = new GroupBox();
+            txtOutCarrierWorkQty = new TextBox();
+            label6 = new Label();
+            lbOutCarrierJobStat = new Label();
+            lbOutCarrierIdStat = new Label();
+            txtOutCarrierID = new TextBox();
             label10 = new Label();
-            btnRLCarrier1 = new Button();
+            txtOutCarrierLot = new TextBox();
+            label24 = new Label();
+            btnOutCarrier1 = new Button();
+            ckOutCarrier_TimeOut = new CheckBox();
+            ckOutCarrier_NG = new CheckBox();
             tabLotControl = new TabPage();
             btnLotEnd3 = new Button();
             btnLotEnd2 = new Button();
@@ -161,6 +141,25 @@
             label14 = new Label();
             txtUpperLot = new TextBox();
             label13 = new Label();
+            tabUbm = new TabPage();
+            ckUbmTimeOut = new CheckBox();
+            ckUbmNg = new CheckBox();
+            panel1 = new Panel();
+            lbUbmOutType1 = new Label();
+            lbUbmOutType5 = new Label();
+            btnUbmStep3 = new Button();
+            txtUbmLimitQty = new TextBox();
+            label22 = new Label();
+            txtUbmWanningQty = new TextBox();
+            label21 = new Label();
+            txtUbmUseQty = new TextBox();
+            label20 = new Label();
+            txtUbmID = new TextBox();
+            label19 = new Label();
+            btnUbmStep2 = new Button();
+            txtUBM_Bcr = new TextBox();
+            label15 = new Label();
+            btnUbmStep1 = new Button();
             TimerCommchk = new System.Windows.Forms.Timer(components);
             TimerUserStop = new System.Windows.Forms.Timer(components);
             TimerAlarmSet = new System.Windows.Forms.Timer(components);
@@ -175,21 +174,20 @@
             ((System.ComponentModel.ISupportInitialize)numStopType).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NumSystem).BeginInit();
             ((System.ComponentModel.ISupportInitialize)gridHostMsg).BeginInit();
-            tabCarrier.SuspendLayout();
-            groupBox3.SuspendLayout();
+            tabMtrl.SuspendLayout();
             groupBox2.SuspendLayout();
             groupBox1.SuspendLayout();
             tabCarrierRU.SuspendLayout();
-            groupBox4.SuspendLayout();
-            groupBox5.SuspendLayout();
+            panel2.SuspendLayout();
             groupBox6.SuspendLayout();
             tabCarrierRL.SuspendLayout();
-            groupBox7.SuspendLayout();
-            groupBox8.SuspendLayout();
-            groupBox9.SuspendLayout();
+            panel3.SuspendLayout();
+            groupBox3.SuspendLayout();
             tabLotControl.SuspendLayout();
             groupBox11.SuspendLayout();
             groupBox10.SuspendLayout();
+            tabUbm.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
@@ -198,10 +196,11 @@
             tabControl1.Controls.Add(tabEqpStat);
             tabControl1.Controls.Add(tabAlarm);
             tabControl1.Controls.Add(tabHostMsg);
-            tabControl1.Controls.Add(tabCarrier);
+            tabControl1.Controls.Add(tabMtrl);
             tabControl1.Controls.Add(tabCarrierRU);
             tabControl1.Controls.Add(tabCarrierRL);
             tabControl1.Controls.Add(tabLotControl);
+            tabControl1.Controls.Add(tabUbm);
             tabControl1.Dock = DockStyle.Fill;
             tabControl1.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
             tabControl1.Location = new Point(0, 0);
@@ -542,382 +541,280 @@
             Column3.Name = "Column3";
             Column3.Width = 380;
             // 
-            // tabCarrier
+            // tabMtrl
             // 
-            tabCarrier.Controls.Add(button2);
-            tabCarrier.Controls.Add(button1);
-            tabCarrier.Controls.Add(ckUW2_TimeOut);
-            tabCarrier.Controls.Add(ckUW2_NG);
-            tabCarrier.Controls.Add(ckUW1_TimeOut);
-            tabCarrier.Controls.Add(ckUW1_NG);
-            tabCarrier.Controls.Add(groupBox3);
-            tabCarrier.Controls.Add(btnUWCarrier2);
-            tabCarrier.Controls.Add(groupBox2);
-            tabCarrier.Controls.Add(groupBox1);
-            tabCarrier.Controls.Add(btnUWCarrier1);
-            tabCarrier.Location = new Point(4, 44);
-            tabCarrier.Name = "tabCarrier";
-            tabCarrier.Padding = new Padding(3);
-            tabCarrier.Size = new Size(1087, 608);
-            tabCarrier.TabIndex = 0;
-            tabCarrier.Text = "2-1 Carrier Management (UW)";
-            tabCarrier.UseVisualStyleBackColor = true;
+            tabMtrl.Controls.Add(btnMtrlStep4);
+            tabMtrl.Controls.Add(btnMtrlStep3);
+            tabMtrl.Controls.Add(groupBox2);
+            tabMtrl.Controls.Add(btnMtrlStep2);
+            tabMtrl.Controls.Add(ckMtrl_TimeOut);
+            tabMtrl.Controls.Add(ckMtrl_NG);
+            tabMtrl.Controls.Add(groupBox1);
+            tabMtrl.Controls.Add(btnMtrlStep1);
+            tabMtrl.Location = new Point(4, 44);
+            tabMtrl.Name = "tabMtrl";
+            tabMtrl.Padding = new Padding(3);
+            tabMtrl.Size = new Size(1087, 608);
+            tabMtrl.TabIndex = 0;
+            tabMtrl.Text = "2-1 Material Management";
+            tabMtrl.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnMtrlStep4
             // 
-            button2.Location = new Point(22, 491);
-            button2.Name = "button2";
-            button2.Size = new Size(172, 23);
-            button2.TabIndex = 16;
-            button2.Text = "Step 2 - UW2 Carrier Out";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btnMtrlStep4.Location = new Point(29, 428);
+            btnMtrlStep4.Name = "btnMtrlStep4";
+            btnMtrlStep4.Size = new Size(241, 23);
+            btnMtrlStep4.TabIndex = 22;
+            btnMtrlStep4.Text = "Step 4 - Material Output Report";
+            btnMtrlStep4.UseVisualStyleBackColor = true;
+            btnMtrlStep4.Click += btnMtrlStep4_Click;
             // 
-            // button1
+            // btnMtrlStep3
             // 
-            button1.Location = new Point(22, 284);
-            button1.Name = "button1";
-            button1.Size = new Size(172, 23);
-            button1.TabIndex = 15;
-            button1.Text = "Step 2 - UW1 Carrier Out";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click_1;
-            // 
-            // ckUW2_TimeOut
-            // 
-            ckUW2_TimeOut.AutoSize = true;
-            ckUW2_TimeOut.Location = new Point(248, 465);
-            ckUW2_TimeOut.Name = "ckUW2_TimeOut";
-            ckUW2_TimeOut.Size = new Size(76, 19);
-            ckUW2_TimeOut.TabIndex = 14;
-            ckUW2_TimeOut.Text = "Time Out";
-            ckUW2_TimeOut.UseVisualStyleBackColor = true;
-            // 
-            // ckUW2_NG
-            // 
-            ckUW2_NG.AutoSize = true;
-            ckUW2_NG.Location = new Point(200, 465);
-            ckUW2_NG.Name = "ckUW2_NG";
-            ckUW2_NG.Size = new Size(43, 19);
-            ckUW2_NG.TabIndex = 13;
-            ckUW2_NG.Text = "NG";
-            ckUW2_NG.UseVisualStyleBackColor = true;
-            // 
-            // ckUW1_TimeOut
-            // 
-            ckUW1_TimeOut.AutoSize = true;
-            ckUW1_TimeOut.Location = new Point(248, 259);
-            ckUW1_TimeOut.Name = "ckUW1_TimeOut";
-            ckUW1_TimeOut.Size = new Size(76, 19);
-            ckUW1_TimeOut.TabIndex = 12;
-            ckUW1_TimeOut.Text = "Time Out";
-            ckUW1_TimeOut.UseVisualStyleBackColor = true;
-            // 
-            // ckUW1_NG
-            // 
-            ckUW1_NG.AutoSize = true;
-            ckUW1_NG.Location = new Point(200, 259);
-            ckUW1_NG.Name = "ckUW1_NG";
-            ckUW1_NG.Size = new Size(43, 19);
-            ckUW1_NG.TabIndex = 11;
-            ckUW1_NG.Text = "NG";
-            ckUW1_NG.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(lbUW2_JOB_stat);
-            groupBox3.Controls.Add(lbUW2_ID_stat);
-            groupBox3.Controls.Add(txtUW2Carrier);
-            groupBox3.Controls.Add(label7);
-            groupBox3.Controls.Add(txtUW2CarrierLot);
-            groupBox3.Controls.Add(label8);
-            groupBox3.FlatStyle = FlatStyle.Flat;
-            groupBox3.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox3.Location = new Point(22, 349);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(297, 107);
-            groupBox3.TabIndex = 10;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "UW2";
-            // 
-            // lbUW2_JOB_stat
-            // 
-            lbUW2_JOB_stat.AutoSize = true;
-            lbUW2_JOB_stat.BackColor = Color.Gray;
-            lbUW2_JOB_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbUW2_JOB_stat.ForeColor = SystemColors.Info;
-            lbUW2_JOB_stat.Location = new Point(237, 74);
-            lbUW2_JOB_stat.Name = "lbUW2_JOB_stat";
-            lbUW2_JOB_stat.Size = new Size(47, 13);
-            lbUW2_JOB_stat.TabIndex = 7;
-            lbUW2_JOB_stat.Text = "Job Rpt";
-            // 
-            // lbUW2_ID_stat
-            // 
-            lbUW2_ID_stat.AutoSize = true;
-            lbUW2_ID_stat.BackColor = Color.Gray;
-            lbUW2_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbUW2_ID_stat.ForeColor = SystemColors.Info;
-            lbUW2_ID_stat.Location = new Point(237, 49);
-            lbUW2_ID_stat.Name = "lbUW2_ID_stat";
-            lbUW2_ID_stat.Size = new Size(40, 13);
-            lbUW2_ID_stat.TabIndex = 6;
-            lbUW2_ID_stat.Text = "ID Rpt";
-            // 
-            // txtUW2Carrier
-            // 
-            txtUW2Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtUW2Carrier.Location = new Point(98, 42);
-            txtUW2Carrier.Name = "txtUW2Carrier";
-            txtUW2Carrier.Size = new Size(132, 22);
-            txtUW2Carrier.TabIndex = 3;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("맑은 고딕", 8.25F);
-            label7.Location = new Point(27, 42);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 13);
-            label7.TabIndex = 2;
-            label7.Text = "Carrier ID :";
-            // 
-            // txtUW2CarrierLot
-            // 
-            txtUW2CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtUW2CarrierLot.Location = new Point(98, 71);
-            txtUW2CarrierLot.Name = "txtUW2CarrierLot";
-            txtUW2CarrierLot.ReadOnly = true;
-            txtUW2CarrierLot.Size = new Size(132, 22);
-            txtUW2CarrierLot.TabIndex = 5;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("맑은 고딕", 8.25F);
-            label8.Location = new Point(6, 71);
-            label8.Name = "label8";
-            label8.Size = new Size(82, 13);
-            label8.TabIndex = 4;
-            label8.Text = "Carrier Lot ID :";
-            // 
-            // btnUWCarrier2
-            // 
-            btnUWCarrier2.Location = new Point(22, 462);
-            btnUWCarrier2.Name = "btnUWCarrier2";
-            btnUWCarrier2.Size = new Size(172, 23);
-            btnUWCarrier2.TabIndex = 9;
-            btnUWCarrier2.Text = "Step 1 - UW2 Carrier BCR";
-            btnUWCarrier2.UseVisualStyleBackColor = true;
-            btnUWCarrier2.Click += btnUWCarrier2_Click;
+            btnMtrlStep3.Location = new Point(29, 387);
+            btnMtrlStep3.Name = "btnMtrlStep3";
+            btnMtrlStep3.Size = new Size(241, 23);
+            btnMtrlStep3.TabIndex = 21;
+            btnMtrlStep3.Text = "Step 3 - Material Job End Report";
+            btnMtrlStep3.UseVisualStyleBackColor = true;
+            btnMtrlStep3.Click += btnMtrlStep3_Click;
             // 
             // groupBox2
             // 
-            groupBox2.Controls.Add(ckUWAutosplicing);
-            groupBox2.Controls.Add(rbUW1_2);
-            groupBox2.Controls.Add(rbUW1_1);
+            groupBox2.Controls.Add(rbMtrlOutType2);
+            groupBox2.Controls.Add(rbMtrlOutType1);
             groupBox2.FlatStyle = FlatStyle.Flat;
             groupBox2.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox2.Location = new Point(22, 22);
+            groupBox2.Location = new Point(26, 298);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(284, 70);
-            groupBox2.TabIndex = 8;
+            groupBox2.Size = new Size(262, 70);
+            groupBox2.TabIndex = 20;
             groupBox2.TabStop = false;
-            groupBox2.Text = "Core Select";
+            groupBox2.Text = "Out Type";
             // 
-            // ckUWAutosplicing
+            // rbMtrlOutType2
             // 
-            ckUWAutosplicing.AutoSize = true;
-            ckUWAutosplicing.Checked = true;
-            ckUWAutosplicing.CheckState = CheckState.Checked;
-            ckUWAutosplicing.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            ckUWAutosplicing.Location = new Point(178, 34);
-            ckUWAutosplicing.Name = "ckUWAutosplicing";
-            ckUWAutosplicing.Size = new Size(93, 19);
-            ckUWAutosplicing.TabIndex = 12;
-            ckUWAutosplicing.Text = "Autosplicing";
-            ckUWAutosplicing.UseVisualStyleBackColor = true;
+            rbMtrlOutType2.AutoSize = true;
+            rbMtrlOutType2.Font = new Font("맑은 고딕", 9.75F);
+            rbMtrlOutType2.Location = new Point(108, 32);
+            rbMtrlOutType2.Name = "rbMtrlOutType2";
+            rbMtrlOutType2.Size = new Size(83, 21);
+            rbMtrlOutType2.TabIndex = 1;
+            rbMtrlOutType2.TabStop = true;
+            rbMtrlOutType2.Tag = "1";
+            rbMtrlOutType2.Text = "잔량 존재";
+            rbMtrlOutType2.UseVisualStyleBackColor = true;
             // 
-            // rbUW1_2
+            // rbMtrlOutType1
             // 
-            rbUW1_2.AutoSize = true;
-            rbUW1_2.Font = new Font("맑은 고딕", 9.75F);
-            rbUW1_2.Location = new Point(98, 32);
-            rbUW1_2.Name = "rbUW1_2";
-            rbUW1_2.Size = new Size(54, 21);
-            rbUW1_2.TabIndex = 1;
-            rbUW1_2.TabStop = true;
-            rbUW1_2.Text = "UW2";
-            rbUW1_2.UseVisualStyleBackColor = true;
-            rbUW1_2.CheckedChanged += rbUW1_1_CheckedChanged;
+            rbMtrlOutType1.AutoSize = true;
+            rbMtrlOutType1.Checked = true;
+            rbMtrlOutType1.Font = new Font("맑은 고딕", 9.75F);
+            rbMtrlOutType1.Location = new Point(15, 32);
+            rbMtrlOutType1.Name = "rbMtrlOutType1";
+            rbMtrlOutType1.Size = new Size(83, 21);
+            rbMtrlOutType1.TabIndex = 0;
+            rbMtrlOutType1.TabStop = true;
+            rbMtrlOutType1.Tag = "0";
+            rbMtrlOutType1.Text = "소진 완료";
+            rbMtrlOutType1.UseVisualStyleBackColor = true;
             // 
-            // rbUW1_1
+            // btnMtrlStep2
             // 
-            rbUW1_1.AutoSize = true;
-            rbUW1_1.Checked = true;
-            rbUW1_1.Font = new Font("맑은 고딕", 9.75F);
-            rbUW1_1.Location = new Point(15, 32);
-            rbUW1_1.Name = "rbUW1_1";
-            rbUW1_1.Size = new Size(54, 21);
-            rbUW1_1.TabIndex = 0;
-            rbUW1_1.TabStop = true;
-            rbUW1_1.Text = "UW1";
-            rbUW1_1.UseVisualStyleBackColor = true;
-            rbUW1_1.CheckedChanged += rbUW1_1_CheckedChanged;
+            btnMtrlStep2.Location = new Point(29, 250);
+            btnMtrlStep2.Name = "btnMtrlStep2";
+            btnMtrlStep2.Size = new Size(241, 23);
+            btnMtrlStep2.TabIndex = 15;
+            btnMtrlStep2.Text = "Step 2 - Material Job Start Report";
+            btnMtrlStep2.UseVisualStyleBackColor = true;
+            btnMtrlStep2.Click += button1_Click_1;
+            // 
+            // ckMtrl_TimeOut
+            // 
+            ckMtrl_TimeOut.AutoSize = true;
+            ckMtrl_TimeOut.Location = new Point(185, 40);
+            ckMtrl_TimeOut.Name = "ckMtrl_TimeOut";
+            ckMtrl_TimeOut.Size = new Size(76, 19);
+            ckMtrl_TimeOut.TabIndex = 12;
+            ckMtrl_TimeOut.Text = "Time Out";
+            ckMtrl_TimeOut.UseVisualStyleBackColor = true;
+            // 
+            // ckMtrl_NG
+            // 
+            ckMtrl_NG.AutoSize = true;
+            ckMtrl_NG.Location = new Point(137, 40);
+            ckMtrl_NG.Name = "ckMtrl_NG";
+            ckMtrl_NG.Size = new Size(43, 19);
+            ckMtrl_NG.TabIndex = 11;
+            ckMtrl_NG.Text = "NG";
+            ckMtrl_NG.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(lbUW1_JOB_stat);
-            groupBox1.Controls.Add(lbUW1_ID_stat);
-            groupBox1.Controls.Add(txtUW1Carrier);
+            groupBox1.Controls.Add(lbMtrlJobStat);
+            groupBox1.Controls.Add(lbMtrlIdStat);
+            groupBox1.Controls.Add(txtMtrlID);
             groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(txtUW1CarrierLot);
+            groupBox1.Controls.Add(txtMtrlWip);
             groupBox1.Controls.Add(label2);
             groupBox1.FlatStyle = FlatStyle.Flat;
             groupBox1.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox1.Location = new Point(22, 111);
+            groupBox1.Location = new Point(26, 124);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(297, 138);
+            groupBox1.Size = new Size(278, 111);
             groupBox1.TabIndex = 7;
             groupBox1.TabStop = false;
-            groupBox1.Text = "UW1";
+            groupBox1.Text = "Material 01";
             // 
-            // lbUW1_JOB_stat
+            // lbMtrlJobStat
             // 
-            lbUW1_JOB_stat.AutoSize = true;
-            lbUW1_JOB_stat.BackColor = Color.Gray;
-            lbUW1_JOB_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbUW1_JOB_stat.ForeColor = SystemColors.Info;
-            lbUW1_JOB_stat.Location = new Point(237, 74);
-            lbUW1_JOB_stat.Name = "lbUW1_JOB_stat";
-            lbUW1_JOB_stat.Size = new Size(47, 13);
-            lbUW1_JOB_stat.TabIndex = 7;
-            lbUW1_JOB_stat.Text = "Job Rpt";
+            lbMtrlJobStat.AutoSize = true;
+            lbMtrlJobStat.BackColor = Color.Gray;
+            lbMtrlJobStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbMtrlJobStat.ForeColor = SystemColors.Info;
+            lbMtrlJobStat.Location = new Point(215, 67);
+            lbMtrlJobStat.Name = "lbMtrlJobStat";
+            lbMtrlJobStat.Size = new Size(47, 13);
+            lbMtrlJobStat.TabIndex = 9;
+            lbMtrlJobStat.Text = "Job Rpt";
             // 
-            // lbUW1_ID_stat
+            // lbMtrlIdStat
             // 
-            lbUW1_ID_stat.AutoSize = true;
-            lbUW1_ID_stat.BackColor = Color.Gray;
-            lbUW1_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbUW1_ID_stat.ForeColor = SystemColors.Info;
-            lbUW1_ID_stat.Location = new Point(237, 49);
-            lbUW1_ID_stat.Name = "lbUW1_ID_stat";
-            lbUW1_ID_stat.Size = new Size(40, 13);
-            lbUW1_ID_stat.TabIndex = 6;
-            lbUW1_ID_stat.Text = "ID Rpt";
+            lbMtrlIdStat.AutoSize = true;
+            lbMtrlIdStat.BackColor = Color.Gray;
+            lbMtrlIdStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbMtrlIdStat.ForeColor = SystemColors.Info;
+            lbMtrlIdStat.Location = new Point(215, 38);
+            lbMtrlIdStat.Name = "lbMtrlIdStat";
+            lbMtrlIdStat.Size = new Size(40, 13);
+            lbMtrlIdStat.TabIndex = 8;
+            lbMtrlIdStat.Text = "ID Rpt";
             // 
-            // txtUW1Carrier
+            // txtMtrlID
             // 
-            txtUW1Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtUW1Carrier.Location = new Point(98, 42);
-            txtUW1Carrier.Name = "txtUW1Carrier";
-            txtUW1Carrier.Size = new Size(132, 22);
-            txtUW1Carrier.TabIndex = 3;
+            txtMtrlID.Font = new Font("맑은 고딕", 8.25F);
+            txtMtrlID.Location = new Point(77, 38);
+            txtMtrlID.Name = "txtMtrlID";
+            txtMtrlID.Size = new Size(132, 22);
+            txtMtrlID.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("맑은 고딕", 8.25F);
-            label1.Location = new Point(27, 42);
+            label1.Location = new Point(6, 38);
             label1.Name = "label1";
-            label1.Size = new Size(62, 13);
+            label1.Size = new Size(56, 13);
             label1.TabIndex = 2;
-            label1.Text = "Carrier ID :";
+            label1.Text = "MTRL ID :";
             // 
-            // txtUW1CarrierLot
+            // txtMtrlWip
             // 
-            txtUW1CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtUW1CarrierLot.Location = new Point(98, 71);
-            txtUW1CarrierLot.Name = "txtUW1CarrierLot";
-            txtUW1CarrierLot.ReadOnly = true;
-            txtUW1CarrierLot.Size = new Size(132, 22);
-            txtUW1CarrierLot.TabIndex = 5;
+            txtMtrlWip.Font = new Font("맑은 고딕", 8.25F);
+            txtMtrlWip.Location = new Point(77, 67);
+            txtMtrlWip.Name = "txtMtrlWip";
+            txtMtrlWip.ReadOnly = true;
+            txtMtrlWip.Size = new Size(132, 22);
+            txtMtrlWip.TabIndex = 5;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("맑은 고딕", 8.25F);
-            label2.Location = new Point(6, 71);
+            label2.Location = new Point(6, 67);
             label2.Name = "label2";
-            label2.Size = new Size(82, 13);
+            label2.Size = new Size(54, 13);
             label2.TabIndex = 4;
-            label2.Text = "Carrier Lot ID :";
+            label2.Text = "WIP Qty :";
             // 
-            // btnUWCarrier1
+            // btnMtrlStep1
             // 
-            btnUWCarrier1.Location = new Point(22, 255);
-            btnUWCarrier1.Name = "btnUWCarrier1";
-            btnUWCarrier1.Size = new Size(172, 23);
-            btnUWCarrier1.TabIndex = 0;
-            btnUWCarrier1.Text = "Step 1 - UW1 Carrier BCR";
-            btnUWCarrier1.UseVisualStyleBackColor = true;
-            btnUWCarrier1.Click += button1_Click;
+            btnMtrlStep1.Location = new Point(29, 81);
+            btnMtrlStep1.Name = "btnMtrlStep1";
+            btnMtrlStep1.Size = new Size(241, 25);
+            btnMtrlStep1.TabIndex = 0;
+            btnMtrlStep1.Text = "Step 1 - Material ID Confirm Request";
+            btnMtrlStep1.UseVisualStyleBackColor = true;
+            btnMtrlStep1.Click += button1_Click;
             // 
             // tabCarrierRU
             // 
-            tabCarrierRU.Controls.Add(button9);
-            tabCarrierRU.Controls.Add(button10);
-            tabCarrierRU.Controls.Add(ckRU2_TimeOut);
-            tabCarrierRU.Controls.Add(ckRU2_NG);
+            tabCarrierRU.Controls.Add(btnInCarrier3);
+            tabCarrierRU.Controls.Add(panel2);
+            tabCarrierRU.Controls.Add(btnInCarrier2);
             tabCarrierRU.Controls.Add(ckRU1_TimeOut);
             tabCarrierRU.Controls.Add(ckRU1_NG);
-            tabCarrierRU.Controls.Add(groupBox4);
-            tabCarrierRU.Controls.Add(btnRUCarrier2);
-            tabCarrierRU.Controls.Add(groupBox5);
             tabCarrierRU.Controls.Add(groupBox6);
-            tabCarrierRU.Controls.Add(btnRUCarrier1);
+            tabCarrierRU.Controls.Add(btnInCarrier1);
             tabCarrierRU.Location = new Point(4, 44);
             tabCarrierRU.Name = "tabCarrierRU";
             tabCarrierRU.Padding = new Padding(3);
             tabCarrierRU.Size = new Size(1087, 608);
             tabCarrierRU.TabIndex = 1;
-            tabCarrierRU.Text = "2-2 Carrier Management (RU)";
+            tabCarrierRU.Text = "2-2 Carrier Management (Input)";
             tabCarrierRU.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnInCarrier3
             // 
-            button9.Location = new Point(18, 489);
-            button9.Name = "button9";
-            button9.Size = new Size(172, 23);
-            button9.TabIndex = 27;
-            button9.Text = "Step 2 - RU2 Carrier Out";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += button9_Click;
+            btnInCarrier3.Location = new Point(24, 401);
+            btnInCarrier3.Name = "btnInCarrier3";
+            btnInCarrier3.Size = new Size(241, 23);
+            btnInCarrier3.TabIndex = 29;
+            btnInCarrier3.Text = "Step 3 - Carrier Output Report";
+            btnInCarrier3.UseVisualStyleBackColor = true;
+            btnInCarrier3.Click += btnInCarrier3_Click;
             // 
-            // button10
+            // panel2
             // 
-            button10.Location = new Point(18, 282);
-            button10.Name = "button10";
-            button10.Size = new Size(172, 23);
-            button10.TabIndex = 26;
-            button10.Text = "Step 2 - RU1 Carrier Out";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += button10_Click;
+            panel2.Controls.Add(lbInCarrierOutType3);
+            panel2.Controls.Add(lbInCarrierOutType2);
+            panel2.Location = new Point(25, 310);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(240, 75);
+            panel2.TabIndex = 28;
             // 
-            // ckRU2_TimeOut
+            // lbInCarrierOutType3
             // 
-            ckRU2_TimeOut.AutoSize = true;
-            ckRU2_TimeOut.Location = new Point(244, 463);
-            ckRU2_TimeOut.Name = "ckRU2_TimeOut";
-            ckRU2_TimeOut.Size = new Size(76, 19);
-            ckRU2_TimeOut.TabIndex = 25;
-            ckRU2_TimeOut.Text = "Time Out";
-            ckRU2_TimeOut.UseVisualStyleBackColor = true;
+            lbInCarrierOutType3.BackColor = Color.Yellow;
+            lbInCarrierOutType3.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbInCarrierOutType3.Location = new Point(124, 10);
+            lbInCarrierOutType3.Name = "lbInCarrierOutType3";
+            lbInCarrierOutType3.RightToLeft = RightToLeft.No;
+            lbInCarrierOutType3.Size = new Size(99, 21);
+            lbInCarrierOutType3.TabIndex = 18;
+            lbInCarrierOutType3.Tag = "3";
+            lbInCarrierOutType3.Text = "6. Holding 배출";
+            lbInCarrierOutType3.TextAlign = ContentAlignment.MiddleCenter;
+            lbInCarrierOutType3.Click += lbInCarrierOutType2_Click;
             // 
-            // ckRU2_NG
+            // lbInCarrierOutType2
             // 
-            ckRU2_NG.AutoSize = true;
-            ckRU2_NG.Location = new Point(196, 463);
-            ckRU2_NG.Name = "ckRU2_NG";
-            ckRU2_NG.Size = new Size(43, 19);
-            ckRU2_NG.TabIndex = 24;
-            ckRU2_NG.Text = "NG";
-            ckRU2_NG.UseVisualStyleBackColor = true;
+            lbInCarrierOutType2.BackColor = Color.Yellow;
+            lbInCarrierOutType2.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbInCarrierOutType2.Location = new Point(10, 10);
+            lbInCarrierOutType2.Name = "lbInCarrierOutType2";
+            lbInCarrierOutType2.RightToLeft = RightToLeft.No;
+            lbInCarrierOutType2.Size = new Size(86, 21);
+            lbInCarrierOutType2.TabIndex = 17;
+            lbInCarrierOutType2.Tag = "5";
+            lbInCarrierOutType2.Text = "5. 강제 배출";
+            lbInCarrierOutType2.TextAlign = ContentAlignment.MiddleCenter;
+            lbInCarrierOutType2.Click += lbInCarrierOutType2_Click;
+            // 
+            // btnInCarrier2
+            // 
+            btnInCarrier2.Location = new Point(24, 281);
+            btnInCarrier2.Name = "btnInCarrier2";
+            btnInCarrier2.Size = new Size(241, 23);
+            btnInCarrier2.TabIndex = 27;
+            btnInCarrier2.Text = "Step 2 - Carrier Job End";
+            btnInCarrier2.UseVisualStyleBackColor = true;
+            btnInCarrier2.Click += btnInCarrier2_Click;
             // 
             // ckRU1_TimeOut
             // 
             ckRU1_TimeOut.AutoSize = true;
-            ckRU1_TimeOut.Location = new Point(244, 257);
+            ckRU1_TimeOut.Location = new Point(219, 26);
             ckRU1_TimeOut.Name = "ckRU1_TimeOut";
             ckRU1_TimeOut.Size = new Size(76, 19);
             ckRU1_TimeOut.TabIndex = 23;
@@ -927,161 +824,103 @@
             // ckRU1_NG
             // 
             ckRU1_NG.AutoSize = true;
-            ckRU1_NG.Location = new Point(196, 257);
+            ckRU1_NG.Location = new Point(171, 26);
             ckRU1_NG.Name = "ckRU1_NG";
             ckRU1_NG.Size = new Size(43, 19);
             ckRU1_NG.TabIndex = 22;
             ckRU1_NG.Text = "NG";
             ckRU1_NG.UseVisualStyleBackColor = true;
             // 
-            // groupBox4
+            // groupBox6
             // 
-            groupBox4.Controls.Add(lbRU2_ID_stat);
-            groupBox4.Controls.Add(txtRU2Carrier);
-            groupBox4.Controls.Add(label5);
-            groupBox4.Controls.Add(txtRU2CarrierLot);
-            groupBox4.Controls.Add(label6);
-            groupBox4.FlatStyle = FlatStyle.Flat;
-            groupBox4.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox4.Location = new Point(18, 347);
-            groupBox4.Name = "groupBox4";
-            groupBox4.Size = new Size(297, 107);
-            groupBox4.TabIndex = 21;
-            groupBox4.TabStop = false;
-            groupBox4.Text = "RU2";
+            groupBox6.Controls.Add(txtInCarrierWork);
+            groupBox6.Controls.Add(label23);
+            groupBox6.Controls.Add(txtInCarrierWip);
+            groupBox6.Controls.Add(label5);
+            groupBox6.Controls.Add(lbInCarrierJobStat);
+            groupBox6.Controls.Add(lbInCarrierIdStat);
+            groupBox6.Controls.Add(txtInCarrierID);
+            groupBox6.Controls.Add(label11);
+            groupBox6.Controls.Add(txtInCarrierLot);
+            groupBox6.Controls.Add(label12);
+            groupBox6.FlatStyle = FlatStyle.Flat;
+            groupBox6.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            groupBox6.Location = new Point(18, 93);
+            groupBox6.Name = "groupBox6";
+            groupBox6.Size = new Size(297, 153);
+            groupBox6.TabIndex = 18;
+            groupBox6.TabStop = false;
+            groupBox6.Text = "Input Carrier";
             // 
-            // lbRU2_ID_stat
+            // txtInCarrierWork
             // 
-            lbRU2_ID_stat.AutoSize = true;
-            lbRU2_ID_stat.BackColor = Color.Gray;
-            lbRU2_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbRU2_ID_stat.ForeColor = SystemColors.Info;
-            lbRU2_ID_stat.Location = new Point(237, 49);
-            lbRU2_ID_stat.Name = "lbRU2_ID_stat";
-            lbRU2_ID_stat.Size = new Size(40, 13);
-            lbRU2_ID_stat.TabIndex = 6;
-            lbRU2_ID_stat.Text = "ID Rpt";
+            txtInCarrierWork.Font = new Font("맑은 고딕", 8.25F);
+            txtInCarrierWork.Location = new Point(98, 125);
+            txtInCarrierWork.Name = "txtInCarrierWork";
+            txtInCarrierWork.ReadOnly = true;
+            txtInCarrierWork.Size = new Size(132, 22);
+            txtInCarrierWork.TabIndex = 14;
             // 
-            // txtRU2Carrier
+            // label23
             // 
-            txtRU2Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtRU2Carrier.Location = new Point(98, 42);
-            txtRU2Carrier.Name = "txtRU2Carrier";
-            txtRU2Carrier.Size = new Size(132, 22);
-            txtRU2Carrier.TabIndex = 3;
+            label23.AutoSize = true;
+            label23.Font = new Font("맑은 고딕", 8.25F);
+            label23.Location = new Point(20, 128);
+            label23.Name = "label23";
+            label23.Size = new Size(62, 13);
+            label23.TabIndex = 13;
+            label23.Text = "Work Qty :";
+            // 
+            // txtInCarrierWip
+            // 
+            txtInCarrierWip.Font = new Font("맑은 고딕", 8.25F);
+            txtInCarrierWip.Location = new Point(98, 99);
+            txtInCarrierWip.Name = "txtInCarrierWip";
+            txtInCarrierWip.ReadOnly = true;
+            txtInCarrierWip.Size = new Size(132, 22);
+            txtInCarrierWip.TabIndex = 12;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("맑은 고딕", 8.25F);
-            label5.Location = new Point(27, 42);
+            label5.Location = new Point(27, 102);
             label5.Name = "label5";
-            label5.Size = new Size(62, 13);
-            label5.TabIndex = 2;
-            label5.Text = "Carrier ID :";
+            label5.Size = new Size(55, 13);
+            label5.TabIndex = 11;
+            label5.Text = "Wip Qty :";
             // 
-            // txtRU2CarrierLot
+            // lbInCarrierJobStat
             // 
-            txtRU2CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtRU2CarrierLot.Location = new Point(98, 71);
-            txtRU2CarrierLot.Name = "txtRU2CarrierLot";
-            txtRU2CarrierLot.ReadOnly = true;
-            txtRU2CarrierLot.Size = new Size(132, 22);
-            txtRU2CarrierLot.TabIndex = 5;
+            lbInCarrierJobStat.AutoSize = true;
+            lbInCarrierJobStat.BackColor = Color.Gray;
+            lbInCarrierJobStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbInCarrierJobStat.ForeColor = SystemColors.Info;
+            lbInCarrierJobStat.Location = new Point(236, 71);
+            lbInCarrierJobStat.Name = "lbInCarrierJobStat";
+            lbInCarrierJobStat.Size = new Size(47, 13);
+            lbInCarrierJobStat.TabIndex = 10;
+            lbInCarrierJobStat.Text = "Job Rpt";
             // 
-            // label6
+            // lbInCarrierIdStat
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("맑은 고딕", 8.25F);
-            label6.Location = new Point(6, 71);
-            label6.Name = "label6";
-            label6.Size = new Size(82, 13);
-            label6.TabIndex = 4;
-            label6.Text = "Carrier Lot ID :";
+            lbInCarrierIdStat.AutoSize = true;
+            lbInCarrierIdStat.BackColor = Color.Gray;
+            lbInCarrierIdStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbInCarrierIdStat.ForeColor = SystemColors.Info;
+            lbInCarrierIdStat.Location = new Point(237, 49);
+            lbInCarrierIdStat.Name = "lbInCarrierIdStat";
+            lbInCarrierIdStat.Size = new Size(40, 13);
+            lbInCarrierIdStat.TabIndex = 6;
+            lbInCarrierIdStat.Text = "ID Rpt";
             // 
-            // btnRUCarrier2
+            // txtInCarrierID
             // 
-            btnRUCarrier2.Location = new Point(18, 460);
-            btnRUCarrier2.Name = "btnRUCarrier2";
-            btnRUCarrier2.Size = new Size(172, 23);
-            btnRUCarrier2.TabIndex = 20;
-            btnRUCarrier2.Text = "Step 1 - RU2 Carrier BCR";
-            btnRUCarrier2.UseVisualStyleBackColor = true;
-            btnRUCarrier2.Click += btnRUCarrier2_Click;
-            // 
-            // groupBox5
-            // 
-            groupBox5.Controls.Add(rbRU2);
-            groupBox5.Controls.Add(rbRU1);
-            groupBox5.FlatStyle = FlatStyle.Flat;
-            groupBox5.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox5.Location = new Point(18, 20);
-            groupBox5.Name = "groupBox5";
-            groupBox5.Size = new Size(284, 70);
-            groupBox5.TabIndex = 19;
-            groupBox5.TabStop = false;
-            groupBox5.Text = "Core Select";
-            // 
-            // rbRU2
-            // 
-            rbRU2.AutoSize = true;
-            rbRU2.Font = new Font("맑은 고딕", 9.75F);
-            rbRU2.Location = new Point(98, 32);
-            rbRU2.Name = "rbRU2";
-            rbRU2.Size = new Size(50, 21);
-            rbRU2.TabIndex = 1;
-            rbRU2.TabStop = true;
-            rbRU2.Text = "RU2";
-            rbRU2.UseVisualStyleBackColor = true;
-            // 
-            // rbRU1
-            // 
-            rbRU1.AutoSize = true;
-            rbRU1.Checked = true;
-            rbRU1.Font = new Font("맑은 고딕", 9.75F);
-            rbRU1.Location = new Point(15, 32);
-            rbRU1.Name = "rbRU1";
-            rbRU1.Size = new Size(50, 21);
-            rbRU1.TabIndex = 0;
-            rbRU1.TabStop = true;
-            rbRU1.Text = "RU1";
-            rbRU1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox6
-            // 
-            groupBox6.Controls.Add(lbRU1_ID_stat);
-            groupBox6.Controls.Add(txtRU1Carrier);
-            groupBox6.Controls.Add(label11);
-            groupBox6.Controls.Add(txtRU1CarrierLot);
-            groupBox6.Controls.Add(label12);
-            groupBox6.FlatStyle = FlatStyle.Flat;
-            groupBox6.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox6.Location = new Point(18, 109);
-            groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(297, 138);
-            groupBox6.TabIndex = 18;
-            groupBox6.TabStop = false;
-            groupBox6.Text = "RU1";
-            // 
-            // lbRU1_ID_stat
-            // 
-            lbRU1_ID_stat.AutoSize = true;
-            lbRU1_ID_stat.BackColor = Color.Gray;
-            lbRU1_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbRU1_ID_stat.ForeColor = SystemColors.Info;
-            lbRU1_ID_stat.Location = new Point(237, 49);
-            lbRU1_ID_stat.Name = "lbRU1_ID_stat";
-            lbRU1_ID_stat.Size = new Size(40, 13);
-            lbRU1_ID_stat.TabIndex = 6;
-            lbRU1_ID_stat.Text = "ID Rpt";
-            // 
-            // txtRU1Carrier
-            // 
-            txtRU1Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtRU1Carrier.Location = new Point(98, 42);
-            txtRU1Carrier.Name = "txtRU1Carrier";
-            txtRU1Carrier.Size = new Size(132, 22);
-            txtRU1Carrier.TabIndex = 3;
+            txtInCarrierID.Font = new Font("맑은 고딕", 8.25F);
+            txtInCarrierID.Location = new Point(98, 42);
+            txtInCarrierID.Name = "txtInCarrierID";
+            txtInCarrierID.Size = new Size(132, 22);
+            txtInCarrierID.TabIndex = 3;
             // 
             // label11
             // 
@@ -1093,14 +932,14 @@
             label11.TabIndex = 2;
             label11.Text = "Carrier ID :";
             // 
-            // txtRU1CarrierLot
+            // txtInCarrierLot
             // 
-            txtRU1CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtRU1CarrierLot.Location = new Point(98, 71);
-            txtRU1CarrierLot.Name = "txtRU1CarrierLot";
-            txtRU1CarrierLot.ReadOnly = true;
-            txtRU1CarrierLot.Size = new Size(132, 22);
-            txtRU1CarrierLot.TabIndex = 5;
+            txtInCarrierLot.Font = new Font("맑은 고딕", 8.25F);
+            txtInCarrierLot.Location = new Point(98, 71);
+            txtInCarrierLot.Name = "txtInCarrierLot";
+            txtInCarrierLot.ReadOnly = true;
+            txtInCarrierLot.Size = new Size(132, 22);
+            txtInCarrierLot.TabIndex = 5;
             // 
             // label12
             // 
@@ -1112,284 +951,218 @@
             label12.TabIndex = 4;
             label12.Text = "Carrier Lot ID :";
             // 
-            // btnRUCarrier1
+            // btnInCarrier1
             // 
-            btnRUCarrier1.Location = new Point(18, 253);
-            btnRUCarrier1.Name = "btnRUCarrier1";
-            btnRUCarrier1.Size = new Size(172, 23);
-            btnRUCarrier1.TabIndex = 17;
-            btnRUCarrier1.Text = "Step 1 - RU1 Carrier BCR";
-            btnRUCarrier1.UseVisualStyleBackColor = true;
-            btnRUCarrier1.Click += btnRWCarrier1_Click;
+            btnInCarrier1.Location = new Point(24, 51);
+            btnInCarrier1.Name = "btnInCarrier1";
+            btnInCarrier1.Size = new Size(241, 23);
+            btnInCarrier1.TabIndex = 17;
+            btnInCarrier1.Text = "Step 1 - Carrier BCR // Job Start";
+            btnInCarrier1.UseVisualStyleBackColor = true;
+            btnInCarrier1.Click += btnRWCarrier1_Click;
             // 
             // tabCarrierRL
             // 
-            tabCarrierRL.Controls.Add(btnRLCarrier2LOT);
-            tabCarrierRL.Controls.Add(btnRLCarrier1Out);
-            tabCarrierRL.Controls.Add(ckRL2_TimeOut);
-            tabCarrierRL.Controls.Add(ckRL2_NG);
-            tabCarrierRL.Controls.Add(ckRL1_TimeOut);
-            tabCarrierRL.Controls.Add(ckRL1_NG);
-            tabCarrierRL.Controls.Add(groupBox7);
-            tabCarrierRL.Controls.Add(btnRLCarrier2);
-            tabCarrierRL.Controls.Add(groupBox8);
-            tabCarrierRL.Controls.Add(groupBox9);
-            tabCarrierRL.Controls.Add(btnRLCarrier1);
+            tabCarrierRL.Controls.Add(btnOutCarrier3);
+            tabCarrierRL.Controls.Add(panel3);
+            tabCarrierRL.Controls.Add(btnOutCarrier2);
+            tabCarrierRL.Controls.Add(groupBox3);
+            tabCarrierRL.Controls.Add(btnOutCarrier1);
+            tabCarrierRL.Controls.Add(ckOutCarrier_TimeOut);
+            tabCarrierRL.Controls.Add(ckOutCarrier_NG);
             tabCarrierRL.Location = new Point(4, 44);
             tabCarrierRL.Name = "tabCarrierRL";
             tabCarrierRL.Padding = new Padding(3);
             tabCarrierRL.Size = new Size(1087, 608);
             tabCarrierRL.TabIndex = 8;
-            tabCarrierRL.Text = "2-3 Carrier Management (RL)";
+            tabCarrierRL.Text = "2-3 Carrier Management (Out)";
             tabCarrierRL.UseVisualStyleBackColor = true;
             // 
-            // btnRLCarrier2LOT
+            // btnOutCarrier3
             // 
-            btnRLCarrier2LOT.Location = new Point(18, 489);
-            btnRLCarrier2LOT.Name = "btnRLCarrier2LOT";
-            btnRLCarrier2LOT.Size = new Size(172, 23);
-            btnRLCarrier2LOT.TabIndex = 27;
-            btnRLCarrier2LOT.Text = "Step 2 - RL2 Carrier Out";
-            btnRLCarrier2LOT.UseVisualStyleBackColor = true;
-            btnRLCarrier2LOT.Click += btnRLCarrier2Out_Click;
+            btnOutCarrier3.Location = new Point(21, 406);
+            btnOutCarrier3.Name = "btnOutCarrier3";
+            btnOutCarrier3.Size = new Size(241, 23);
+            btnOutCarrier3.TabIndex = 34;
+            btnOutCarrier3.Text = "Step 3 - Carrier Output Report";
+            btnOutCarrier3.UseVisualStyleBackColor = true;
+            btnOutCarrier3.Click += btnOutCarrier3_Click;
             // 
-            // btnRLCarrier1Out
+            // panel3
             // 
-            btnRLCarrier1Out.Location = new Point(18, 282);
-            btnRLCarrier1Out.Name = "btnRLCarrier1Out";
-            btnRLCarrier1Out.Size = new Size(172, 23);
-            btnRLCarrier1Out.TabIndex = 26;
-            btnRLCarrier1Out.Text = "Step 2 - RL1 Carrier Out";
-            btnRLCarrier1Out.UseVisualStyleBackColor = true;
-            btnRLCarrier1Out.Click += btnRLCarrier1Out_Click;
+            panel3.Controls.Add(lbOutCarrierOutType6);
+            panel3.Controls.Add(lbOutCarrierOutType5);
+            panel3.Location = new Point(22, 315);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(240, 75);
+            panel3.TabIndex = 33;
             // 
-            // ckRL2_TimeOut
+            // lbOutCarrierOutType6
             // 
-            ckRL2_TimeOut.AutoSize = true;
-            ckRL2_TimeOut.Location = new Point(250, 469);
-            ckRL2_TimeOut.Name = "ckRL2_TimeOut";
-            ckRL2_TimeOut.Size = new Size(76, 19);
-            ckRL2_TimeOut.TabIndex = 25;
-            ckRL2_TimeOut.Text = "Time Out";
-            ckRL2_TimeOut.UseVisualStyleBackColor = true;
+            lbOutCarrierOutType6.BackColor = Color.Yellow;
+            lbOutCarrierOutType6.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbOutCarrierOutType6.Location = new Point(124, 10);
+            lbOutCarrierOutType6.Name = "lbOutCarrierOutType6";
+            lbOutCarrierOutType6.RightToLeft = RightToLeft.No;
+            lbOutCarrierOutType6.Size = new Size(99, 21);
+            lbOutCarrierOutType6.TabIndex = 18;
+            lbOutCarrierOutType6.Tag = "3";
+            lbOutCarrierOutType6.Text = "6. Holding 배출";
+            lbOutCarrierOutType6.TextAlign = ContentAlignment.MiddleCenter;
+            lbOutCarrierOutType6.Click += lbOutCarrierOutType5_Click;
             // 
-            // ckRL2_NG
+            // lbOutCarrierOutType5
             // 
-            ckRL2_NG.AutoSize = true;
-            ckRL2_NG.Location = new Point(202, 469);
-            ckRL2_NG.Name = "ckRL2_NG";
-            ckRL2_NG.Size = new Size(43, 19);
-            ckRL2_NG.TabIndex = 24;
-            ckRL2_NG.Text = "NG";
-            ckRL2_NG.UseVisualStyleBackColor = true;
+            lbOutCarrierOutType5.BackColor = Color.Yellow;
+            lbOutCarrierOutType5.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbOutCarrierOutType5.Location = new Point(10, 10);
+            lbOutCarrierOutType5.Name = "lbOutCarrierOutType5";
+            lbOutCarrierOutType5.RightToLeft = RightToLeft.No;
+            lbOutCarrierOutType5.Size = new Size(86, 21);
+            lbOutCarrierOutType5.TabIndex = 17;
+            lbOutCarrierOutType5.Tag = "5";
+            lbOutCarrierOutType5.Text = "5. 강제 배출";
+            lbOutCarrierOutType5.TextAlign = ContentAlignment.MiddleCenter;
+            lbOutCarrierOutType5.Click += lbOutCarrierOutType5_Click;
             // 
-            // ckRL1_TimeOut
+            // btnOutCarrier2
             // 
-            ckRL1_TimeOut.AutoSize = true;
-            ckRL1_TimeOut.Location = new Point(250, 263);
-            ckRL1_TimeOut.Name = "ckRL1_TimeOut";
-            ckRL1_TimeOut.Size = new Size(76, 19);
-            ckRL1_TimeOut.TabIndex = 23;
-            ckRL1_TimeOut.Text = "Time Out";
-            ckRL1_TimeOut.UseVisualStyleBackColor = true;
+            btnOutCarrier2.Location = new Point(21, 286);
+            btnOutCarrier2.Name = "btnOutCarrier2";
+            btnOutCarrier2.Size = new Size(241, 23);
+            btnOutCarrier2.TabIndex = 32;
+            btnOutCarrier2.Text = "Step 2 - Carrier Job End";
+            btnOutCarrier2.UseVisualStyleBackColor = true;
+            btnOutCarrier2.Click += btnOutCarrier2_Click;
             // 
-            // ckRL1_NG
+            // groupBox3
             // 
-            ckRL1_NG.AutoSize = true;
-            ckRL1_NG.Location = new Point(202, 263);
-            ckRL1_NG.Name = "ckRL1_NG";
-            ckRL1_NG.Size = new Size(43, 19);
-            ckRL1_NG.TabIndex = 22;
-            ckRL1_NG.Text = "NG";
-            ckRL1_NG.UseVisualStyleBackColor = true;
+            groupBox3.Controls.Add(txtOutCarrierWorkQty);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Controls.Add(lbOutCarrierJobStat);
+            groupBox3.Controls.Add(lbOutCarrierIdStat);
+            groupBox3.Controls.Add(txtOutCarrierID);
+            groupBox3.Controls.Add(label10);
+            groupBox3.Controls.Add(txtOutCarrierLot);
+            groupBox3.Controls.Add(label24);
+            groupBox3.FlatStyle = FlatStyle.Flat;
+            groupBox3.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
+            groupBox3.Location = new Point(15, 98);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(297, 153);
+            groupBox3.TabIndex = 31;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Output Carrier";
             // 
-            // groupBox7
+            // txtOutCarrierWorkQty
             // 
-            groupBox7.Controls.Add(lbRL2_ID_stat);
-            groupBox7.Controls.Add(txtRL2Carrier);
-            groupBox7.Controls.Add(label3);
-            groupBox7.Controls.Add(txtRL2CarrierLot);
-            groupBox7.Controls.Add(label4);
-            groupBox7.FlatStyle = FlatStyle.Flat;
-            groupBox7.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox7.Location = new Point(18, 347);
-            groupBox7.Name = "groupBox7";
-            groupBox7.Size = new Size(297, 107);
-            groupBox7.TabIndex = 21;
-            groupBox7.TabStop = false;
-            groupBox7.Text = "RL2";
+            txtOutCarrierWorkQty.Font = new Font("맑은 고딕", 8.25F);
+            txtOutCarrierWorkQty.Location = new Point(98, 99);
+            txtOutCarrierWorkQty.Name = "txtOutCarrierWorkQty";
+            txtOutCarrierWorkQty.ReadOnly = true;
+            txtOutCarrierWorkQty.Size = new Size(132, 22);
+            txtOutCarrierWorkQty.TabIndex = 14;
             // 
-            // lbRL2_ID_stat
+            // label6
             // 
-            lbRL2_ID_stat.AutoSize = true;
-            lbRL2_ID_stat.BackColor = Color.Gray;
-            lbRL2_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbRL2_ID_stat.ForeColor = SystemColors.Info;
-            lbRL2_ID_stat.Location = new Point(237, 49);
-            lbRL2_ID_stat.Name = "lbRL2_ID_stat";
-            lbRL2_ID_stat.Size = new Size(40, 13);
-            lbRL2_ID_stat.TabIndex = 6;
-            lbRL2_ID_stat.Text = "ID Rpt";
+            label6.AutoSize = true;
+            label6.Font = new Font("맑은 고딕", 8.25F);
+            label6.Location = new Point(21, 102);
+            label6.Name = "label6";
+            label6.Size = new Size(62, 13);
+            label6.TabIndex = 13;
+            label6.Text = "Work Qty :";
             // 
-            // txtRL2Carrier
+            // lbOutCarrierJobStat
             // 
-            txtRL2Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtRL2Carrier.Location = new Point(98, 42);
-            txtRL2Carrier.Name = "txtRL2Carrier";
-            txtRL2Carrier.Size = new Size(132, 22);
-            txtRL2Carrier.TabIndex = 3;
+            lbOutCarrierJobStat.AutoSize = true;
+            lbOutCarrierJobStat.BackColor = Color.Gray;
+            lbOutCarrierJobStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbOutCarrierJobStat.ForeColor = SystemColors.Info;
+            lbOutCarrierJobStat.Location = new Point(236, 71);
+            lbOutCarrierJobStat.Name = "lbOutCarrierJobStat";
+            lbOutCarrierJobStat.Size = new Size(47, 13);
+            lbOutCarrierJobStat.TabIndex = 10;
+            lbOutCarrierJobStat.Text = "Job Rpt";
             // 
-            // label3
+            // lbOutCarrierIdStat
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("맑은 고딕", 8.25F);
-            label3.Location = new Point(27, 42);
-            label3.Name = "label3";
-            label3.Size = new Size(62, 13);
-            label3.TabIndex = 2;
-            label3.Text = "Carrier ID :";
+            lbOutCarrierIdStat.AutoSize = true;
+            lbOutCarrierIdStat.BackColor = Color.Gray;
+            lbOutCarrierIdStat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbOutCarrierIdStat.ForeColor = SystemColors.Info;
+            lbOutCarrierIdStat.Location = new Point(237, 49);
+            lbOutCarrierIdStat.Name = "lbOutCarrierIdStat";
+            lbOutCarrierIdStat.Size = new Size(40, 13);
+            lbOutCarrierIdStat.TabIndex = 6;
+            lbOutCarrierIdStat.Text = "ID Rpt";
             // 
-            // txtRL2CarrierLot
+            // txtOutCarrierID
             // 
-            txtRL2CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtRL2CarrierLot.Location = new Point(98, 71);
-            txtRL2CarrierLot.Name = "txtRL2CarrierLot";
-            txtRL2CarrierLot.ReadOnly = true;
-            txtRL2CarrierLot.Size = new Size(132, 22);
-            txtRL2CarrierLot.TabIndex = 5;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("맑은 고딕", 8.25F);
-            label4.Location = new Point(6, 71);
-            label4.Name = "label4";
-            label4.Size = new Size(82, 13);
-            label4.TabIndex = 4;
-            label4.Text = "Carrier Lot ID :";
-            // 
-            // btnRLCarrier2
-            // 
-            btnRLCarrier2.Location = new Point(18, 460);
-            btnRLCarrier2.Name = "btnRLCarrier2";
-            btnRLCarrier2.Size = new Size(172, 23);
-            btnRLCarrier2.TabIndex = 20;
-            btnRLCarrier2.Text = "Step 1 - RL2 Carrier BCR";
-            btnRLCarrier2.UseVisualStyleBackColor = true;
-            btnRLCarrier2.Click += btnRLCarrier2_Click;
-            // 
-            // groupBox8
-            // 
-            groupBox8.Controls.Add(rbRL2);
-            groupBox8.Controls.Add(rbRL1);
-            groupBox8.FlatStyle = FlatStyle.Flat;
-            groupBox8.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox8.Location = new Point(18, 20);
-            groupBox8.Name = "groupBox8";
-            groupBox8.Size = new Size(284, 70);
-            groupBox8.TabIndex = 19;
-            groupBox8.TabStop = false;
-            groupBox8.Text = "Core Select";
-            // 
-            // rbRL2
-            // 
-            rbRL2.AutoSize = true;
-            rbRL2.Font = new Font("맑은 고딕", 9.75F);
-            rbRL2.Location = new Point(98, 32);
-            rbRL2.Name = "rbRL2";
-            rbRL2.Size = new Size(47, 21);
-            rbRL2.TabIndex = 1;
-            rbRL2.TabStop = true;
-            rbRL2.Text = "RL2";
-            rbRL2.UseVisualStyleBackColor = true;
-            // 
-            // rbRL1
-            // 
-            rbRL1.AutoSize = true;
-            rbRL1.Checked = true;
-            rbRL1.Font = new Font("맑은 고딕", 9.75F);
-            rbRL1.Location = new Point(15, 32);
-            rbRL1.Name = "rbRL1";
-            rbRL1.Size = new Size(47, 21);
-            rbRL1.TabIndex = 0;
-            rbRL1.TabStop = true;
-            rbRL1.Text = "RL1";
-            rbRL1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox9
-            // 
-            groupBox9.Controls.Add(lbRL1_ID_stat);
-            groupBox9.Controls.Add(txtRL1Carrier);
-            groupBox9.Controls.Add(label9);
-            groupBox9.Controls.Add(txtRL1CarrierLot);
-            groupBox9.Controls.Add(label10);
-            groupBox9.FlatStyle = FlatStyle.Flat;
-            groupBox9.Font = new Font("맑은 고딕", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 129);
-            groupBox9.Location = new Point(18, 109);
-            groupBox9.Name = "groupBox9";
-            groupBox9.Size = new Size(297, 138);
-            groupBox9.TabIndex = 18;
-            groupBox9.TabStop = false;
-            groupBox9.Text = "RL1";
-            // 
-            // lbRL1_ID_stat
-            // 
-            lbRL1_ID_stat.AutoSize = true;
-            lbRL1_ID_stat.BackColor = Color.Gray;
-            lbRL1_ID_stat.Font = new Font("맑은 고딕", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lbRL1_ID_stat.ForeColor = SystemColors.Info;
-            lbRL1_ID_stat.Location = new Point(237, 49);
-            lbRL1_ID_stat.Name = "lbRL1_ID_stat";
-            lbRL1_ID_stat.Size = new Size(40, 13);
-            lbRL1_ID_stat.TabIndex = 6;
-            lbRL1_ID_stat.Text = "ID Rpt";
-            // 
-            // txtRL1Carrier
-            // 
-            txtRL1Carrier.Font = new Font("맑은 고딕", 8.25F);
-            txtRL1Carrier.Location = new Point(98, 42);
-            txtRL1Carrier.Name = "txtRL1Carrier";
-            txtRL1Carrier.Size = new Size(132, 22);
-            txtRL1Carrier.TabIndex = 3;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("맑은 고딕", 8.25F);
-            label9.Location = new Point(27, 42);
-            label9.Name = "label9";
-            label9.Size = new Size(62, 13);
-            label9.TabIndex = 2;
-            label9.Text = "Carrier ID :";
-            // 
-            // txtRL1CarrierLot
-            // 
-            txtRL1CarrierLot.Font = new Font("맑은 고딕", 8.25F);
-            txtRL1CarrierLot.Location = new Point(98, 71);
-            txtRL1CarrierLot.Name = "txtRL1CarrierLot";
-            txtRL1CarrierLot.ReadOnly = true;
-            txtRL1CarrierLot.Size = new Size(132, 22);
-            txtRL1CarrierLot.TabIndex = 5;
+            txtOutCarrierID.Font = new Font("맑은 고딕", 8.25F);
+            txtOutCarrierID.Location = new Point(98, 42);
+            txtOutCarrierID.Name = "txtOutCarrierID";
+            txtOutCarrierID.Size = new Size(132, 22);
+            txtOutCarrierID.TabIndex = 3;
             // 
             // label10
             // 
             label10.AutoSize = true;
             label10.Font = new Font("맑은 고딕", 8.25F);
-            label10.Location = new Point(6, 71);
+            label10.Location = new Point(27, 42);
             label10.Name = "label10";
-            label10.Size = new Size(82, 13);
-            label10.TabIndex = 4;
-            label10.Text = "Carrier Lot ID :";
+            label10.Size = new Size(62, 13);
+            label10.TabIndex = 2;
+            label10.Text = "Carrier ID :";
             // 
-            // btnRLCarrier1
+            // txtOutCarrierLot
             // 
-            btnRLCarrier1.Location = new Point(18, 253);
-            btnRLCarrier1.Name = "btnRLCarrier1";
-            btnRLCarrier1.Size = new Size(172, 23);
-            btnRLCarrier1.TabIndex = 17;
-            btnRLCarrier1.Text = "Step 1 - RL1 Carrier BCR";
-            btnRLCarrier1.UseVisualStyleBackColor = true;
-            btnRLCarrier1.Click += btnRLCarrier1_Click;
+            txtOutCarrierLot.Font = new Font("맑은 고딕", 8.25F);
+            txtOutCarrierLot.Location = new Point(98, 71);
+            txtOutCarrierLot.Name = "txtOutCarrierLot";
+            txtOutCarrierLot.ReadOnly = true;
+            txtOutCarrierLot.Size = new Size(132, 22);
+            txtOutCarrierLot.TabIndex = 5;
+            // 
+            // label24
+            // 
+            label24.AutoSize = true;
+            label24.Font = new Font("맑은 고딕", 8.25F);
+            label24.Location = new Point(6, 71);
+            label24.Name = "label24";
+            label24.Size = new Size(82, 13);
+            label24.TabIndex = 4;
+            label24.Text = "Carrier Lot ID :";
+            // 
+            // btnOutCarrier1
+            // 
+            btnOutCarrier1.Location = new Point(21, 56);
+            btnOutCarrier1.Name = "btnOutCarrier1";
+            btnOutCarrier1.Size = new Size(241, 23);
+            btnOutCarrier1.TabIndex = 30;
+            btnOutCarrier1.Text = "Step 1 - Carrier BCR // Job Start";
+            btnOutCarrier1.UseVisualStyleBackColor = true;
+            btnOutCarrier1.Click += btnOutCarrier1_Click;
+            // 
+            // ckOutCarrier_TimeOut
+            // 
+            ckOutCarrier_TimeOut.AutoSize = true;
+            ckOutCarrier_TimeOut.Location = new Point(230, 22);
+            ckOutCarrier_TimeOut.Name = "ckOutCarrier_TimeOut";
+            ckOutCarrier_TimeOut.Size = new Size(76, 19);
+            ckOutCarrier_TimeOut.TabIndex = 23;
+            ckOutCarrier_TimeOut.Text = "Time Out";
+            ckOutCarrier_TimeOut.UseVisualStyleBackColor = true;
+            // 
+            // ckOutCarrier_NG
+            // 
+            ckOutCarrier_NG.AutoSize = true;
+            ckOutCarrier_NG.Location = new Point(182, 22);
+            ckOutCarrier_NG.Name = "ckOutCarrier_NG";
+            ckOutCarrier_NG.Size = new Size(43, 19);
+            ckOutCarrier_NG.TabIndex = 22;
+            ckOutCarrier_NG.Text = "NG";
+            ckOutCarrier_NG.UseVisualStyleBackColor = true;
             // 
             // tabLotControl
             // 
@@ -1629,6 +1402,212 @@
             label13.TabIndex = 6;
             label13.Text = "Upper Lot ID :";
             // 
+            // tabUbm
+            // 
+            tabUbm.Controls.Add(ckUbmTimeOut);
+            tabUbm.Controls.Add(ckUbmNg);
+            tabUbm.Controls.Add(panel1);
+            tabUbm.Controls.Add(btnUbmStep3);
+            tabUbm.Controls.Add(txtUbmLimitQty);
+            tabUbm.Controls.Add(label22);
+            tabUbm.Controls.Add(txtUbmWanningQty);
+            tabUbm.Controls.Add(label21);
+            tabUbm.Controls.Add(txtUbmUseQty);
+            tabUbm.Controls.Add(label20);
+            tabUbm.Controls.Add(txtUbmID);
+            tabUbm.Controls.Add(label19);
+            tabUbm.Controls.Add(btnUbmStep2);
+            tabUbm.Controls.Add(txtUBM_Bcr);
+            tabUbm.Controls.Add(label15);
+            tabUbm.Controls.Add(btnUbmStep1);
+            tabUbm.Location = new Point(4, 44);
+            tabUbm.Name = "tabUbm";
+            tabUbm.Size = new Size(1087, 608);
+            tabUbm.TabIndex = 9;
+            tabUbm.Text = "2.5 UBM Parts Management";
+            tabUbm.UseVisualStyleBackColor = true;
+            // 
+            // ckUbmTimeOut
+            // 
+            ckUbmTimeOut.AutoSize = true;
+            ckUbmTimeOut.Location = new Point(158, 36);
+            ckUbmTimeOut.Name = "ckUbmTimeOut";
+            ckUbmTimeOut.Size = new Size(76, 19);
+            ckUbmTimeOut.TabIndex = 25;
+            ckUbmTimeOut.Text = "Time Out";
+            ckUbmTimeOut.UseVisualStyleBackColor = true;
+            // 
+            // ckUbmNg
+            // 
+            ckUbmNg.AutoSize = true;
+            ckUbmNg.Location = new Point(110, 36);
+            ckUbmNg.Name = "ckUbmNg";
+            ckUbmNg.Size = new Size(43, 19);
+            ckUbmNg.TabIndex = 24;
+            ckUbmNg.Text = "NG";
+            ckUbmNg.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(lbUbmOutType1);
+            panel1.Controls.Add(lbUbmOutType5);
+            panel1.Location = new Point(22, 377);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(211, 75);
+            panel1.TabIndex = 18;
+            // 
+            // lbUbmOutType1
+            // 
+            lbUbmOutType1.BackColor = Color.Yellow;
+            lbUbmOutType1.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbUbmOutType1.Location = new Point(9, 12);
+            lbUbmOutType1.Name = "lbUbmOutType1";
+            lbUbmOutType1.RightToLeft = RightToLeft.No;
+            lbUbmOutType1.Size = new Size(86, 21);
+            lbUbmOutType1.TabIndex = 16;
+            lbUbmOutType1.Tag = "1";
+            lbUbmOutType1.Text = "정상 교체";
+            lbUbmOutType1.TextAlign = ContentAlignment.MiddleCenter;
+            lbUbmOutType1.Click += lbUbmOutType1_Click;
+            // 
+            // lbUbmOutType5
+            // 
+            lbUbmOutType5.BackColor = Color.Yellow;
+            lbUbmOutType5.Font = new Font("맑은 고딕", 9F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lbUbmOutType5.Location = new Point(111, 12);
+            lbUbmOutType5.Name = "lbUbmOutType5";
+            lbUbmOutType5.RightToLeft = RightToLeft.No;
+            lbUbmOutType5.Size = new Size(86, 21);
+            lbUbmOutType5.TabIndex = 17;
+            lbUbmOutType5.Tag = "5";
+            lbUbmOutType5.Text = "기타";
+            lbUbmOutType5.TextAlign = ContentAlignment.MiddleCenter;
+            lbUbmOutType5.Click += lbUbmOutType1_Click;
+            // 
+            // btnUbmStep3
+            // 
+            btnUbmStep3.Location = new Point(21, 348);
+            btnUbmStep3.Name = "btnUbmStep3";
+            btnUbmStep3.Size = new Size(212, 23);
+            btnUbmStep3.TabIndex = 15;
+            btnUbmStep3.Text = "Step 3 - UBM Part Output";
+            btnUbmStep3.UseVisualStyleBackColor = true;
+            btnUbmStep3.Click += btnUbmStep3_Click;
+            // 
+            // txtUbmLimitQty
+            // 
+            txtUbmLimitQty.Font = new Font("맑은 고딕", 8.25F);
+            txtUbmLimitQty.Location = new Point(84, 292);
+            txtUbmLimitQty.Name = "txtUbmLimitQty";
+            txtUbmLimitQty.ReadOnly = true;
+            txtUbmLimitQty.Size = new Size(149, 22);
+            txtUbmLimitQty.TabIndex = 14;
+            // 
+            // label22
+            // 
+            label22.AutoSize = true;
+            label22.Font = new Font("맑은 고딕", 8.25F);
+            label22.Location = new Point(21, 295);
+            label22.Name = "label22";
+            label22.Size = new Size(61, 13);
+            label22.TabIndex = 13;
+            label22.Text = "한계 수량 :";
+            // 
+            // txtUbmWanningQty
+            // 
+            txtUbmWanningQty.Font = new Font("맑은 고딕", 8.25F);
+            txtUbmWanningQty.Location = new Point(84, 264);
+            txtUbmWanningQty.Name = "txtUbmWanningQty";
+            txtUbmWanningQty.ReadOnly = true;
+            txtUbmWanningQty.Size = new Size(149, 22);
+            txtUbmWanningQty.TabIndex = 12;
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Font = new Font("맑은 고딕", 8.25F);
+            label21.Location = new Point(21, 267);
+            label21.Name = "label21";
+            label21.Size = new Size(61, 13);
+            label21.TabIndex = 11;
+            label21.Text = "경고 수량 :";
+            // 
+            // txtUbmUseQty
+            // 
+            txtUbmUseQty.Font = new Font("맑은 고딕", 8.25F);
+            txtUbmUseQty.Location = new Point(85, 236);
+            txtUbmUseQty.Name = "txtUbmUseQty";
+            txtUbmUseQty.ReadOnly = true;
+            txtUbmUseQty.Size = new Size(149, 22);
+            txtUbmUseQty.TabIndex = 10;
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Font = new Font("맑은 고딕", 8.25F);
+            label20.Location = new Point(22, 239);
+            label20.Name = "label20";
+            label20.Size = new Size(61, 13);
+            label20.TabIndex = 9;
+            label20.Text = "사용 수량 :";
+            // 
+            // txtUbmID
+            // 
+            txtUbmID.Font = new Font("맑은 고딕", 8.25F);
+            txtUbmID.Location = new Point(84, 208);
+            txtUbmID.Name = "txtUbmID";
+            txtUbmID.ReadOnly = true;
+            txtUbmID.Size = new Size(149, 22);
+            txtUbmID.TabIndex = 8;
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("맑은 고딕", 8.25F);
+            label19.Location = new Point(31, 214);
+            label19.Name = "label19";
+            label19.Size = new Size(52, 13);
+            label19.TabIndex = 7;
+            label19.Text = "UBM ID :";
+            // 
+            // btnUbmStep2
+            // 
+            btnUbmStep2.Location = new Point(22, 172);
+            btnUbmStep2.Name = "btnUbmStep2";
+            btnUbmStep2.Size = new Size(212, 23);
+            btnUbmStep2.TabIndex = 6;
+            btnUbmStep2.Text = "Step 2 - UBM Parts Monitoring Data";
+            btnUbmStep2.UseVisualStyleBackColor = true;
+            btnUbmStep2.Click += btnUbmStep2_Click;
+            // 
+            // txtUBM_Bcr
+            // 
+            txtUBM_Bcr.Font = new Font("맑은 고딕", 8.25F);
+            txtUBM_Bcr.Location = new Point(85, 113);
+            txtUBM_Bcr.Name = "txtUBM_Bcr";
+            txtUBM_Bcr.Size = new Size(149, 22);
+            txtUBM_Bcr.TabIndex = 5;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Font = new Font("맑은 고딕", 8.25F);
+            label15.Location = new Point(31, 113);
+            label15.Name = "label15";
+            label15.Size = new Size(48, 13);
+            label15.TabIndex = 4;
+            label15.Text = "BCR ID :";
+            // 
+            // btnUbmStep1
+            // 
+            btnUbmStep1.Location = new Point(22, 73);
+            btnUbmStep1.Name = "btnUbmStep1";
+            btnUbmStep1.Size = new Size(212, 23);
+            btnUbmStep1.TabIndex = 2;
+            btnUbmStep1.Text = "Step 1 - UBM BCR Reading";
+            btnUbmStep1.UseVisualStyleBackColor = true;
+            btnUbmStep1.Click += btnUbmStep1_Click;
+            // 
             // TimerCommchk
             // 
             TimerCommchk.Interval = 1000;
@@ -1645,14 +1624,14 @@
             TimerAlarmSet.Interval = 1000;
             TimerAlarmSet.Tick += TimerAlarmSet_Tick;
             // 
-            // Form1
+            // Packaging
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1095, 656);
             Controls.Add(tabControl1);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            Name = "Form1";
+            Name = "Packaging";
             Text = "Equipment Interface Demo(ESNP - Notching)";
             TopMost = true;
             tabControl1.ResumeLayout(false);
@@ -1668,50 +1647,44 @@
             ((System.ComponentModel.ISupportInitialize)numStopType).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumSystem).EndInit();
             ((System.ComponentModel.ISupportInitialize)gridHostMsg).EndInit();
-            tabCarrier.ResumeLayout(false);
-            tabCarrier.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
+            tabMtrl.ResumeLayout(false);
+            tabMtrl.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             tabCarrierRU.ResumeLayout(false);
             tabCarrierRU.PerformLayout();
-            groupBox4.ResumeLayout(false);
-            groupBox4.PerformLayout();
-            groupBox5.ResumeLayout(false);
-            groupBox5.PerformLayout();
+            panel2.ResumeLayout(false);
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             tabCarrierRL.ResumeLayout(false);
             tabCarrierRL.PerformLayout();
-            groupBox7.ResumeLayout(false);
-            groupBox7.PerformLayout();
-            groupBox8.ResumeLayout(false);
-            groupBox8.PerformLayout();
-            groupBox9.ResumeLayout(false);
-            groupBox9.PerformLayout();
+            panel3.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             tabLotControl.ResumeLayout(false);
             tabLotControl.PerformLayout();
             groupBox11.ResumeLayout(false);
             groupBox11.PerformLayout();
             groupBox10.ResumeLayout(false);
             groupBox10.PerformLayout();
+            tabUbm.ResumeLayout(false);
+            tabUbm.PerformLayout();
+            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private TabControl tabControl1;
-        private TabPage tabCarrier;
+        private TabPage tabMtrl;
         private TabPage tabCarrierRU;
-        private TextBox txtUW1CarrierLot;
+        private TextBox txtMtrlWip;
         private Label label2;
-        private TextBox txtUW1Carrier;
+        private TextBox txtMtrlID;
         private Label label1;
-        private Button button2;
-        private Button btnUWCarrier1;
+        private Button btnMtrlStep1;
         private TabPage tabCommChk;
         private Label lbCommChk;
         private Button btnCommStep1;
@@ -1749,62 +1722,30 @@
         private NumericUpDown numStopType;
         private NumericUpDown NumSystem;
         private GroupBox groupBox1;
-        private GroupBox groupBox2;
-        private RadioButton rbUW1_2;
-        private RadioButton rbUW1_1;
-        private Label lbUW1_JOB_stat;
-        private Label lbUW1_ID_stat;
-        private GroupBox groupBox3;
-        private Label lbUW2_JOB_stat;
-        private Label lbUW2_ID_stat;
-        private TextBox txtUW2Carrier;
-        private Label label7;
-        private TextBox txtUW2CarrierLot;
-        private Label label8;
-        private Button btnUWCarrier2;
-        private CheckBox ckUW2_TimeOut;
-        private CheckBox ckUW2_NG;
-        private CheckBox ckUW1_TimeOut;
-        private CheckBox ckUW1_NG;
-        private CheckBox ckUWAutosplicing;
-        private Button button1;
-        private Button button9;
-        private Button button10;
-        private CheckBox ckRU2_TimeOut;
-        private CheckBox ckRU2_NG;
+        private CheckBox ckMtrl_TimeOut;
+        private CheckBox ckMtrl_NG;
+        private Button btnMtrlStep2;
         private CheckBox ckRU1_TimeOut;
         private CheckBox ckRU1_NG;
-        private GroupBox groupBox4;
-        private Label lbRU2_ID_stat;
-        private TextBox txtRU2Carrier;
-        private Label label5;
-        private TextBox txtRU2CarrierLot;
-        private Label label6;
-        private Button btnRUCarrier2;
-        private GroupBox groupBox5;
-        private RadioButton rbRU2;
-        private RadioButton rbRU1;
         private GroupBox groupBox6;
-        private Label lbRU1_ID_stat;
-        private TextBox txtRU1Carrier;
+        private Label lbInCarrierIdStat;
+        private TextBox txtInCarrierID;
         private Label label11;
-        private TextBox txtRU1CarrierLot;
+        private TextBox txtInCarrierLot;
         private Label label12;
-        private Button btnRUCarrier1;
+        private Button btnInCarrier1;
         private TabPage tabLotControl;
         private TabPage tabCarrierRL;
         private Button btnRLCarrier2LOT;
         private Button btnRLCarrier1Out;
         private CheckBox ckRL2_TimeOut;
         private CheckBox ckRL2_NG;
-        private CheckBox ckRL1_TimeOut;
-        private CheckBox ckRL1_NG;
+        private CheckBox ckOutCarrier_TimeOut;
+        private CheckBox ckOutCarrier_NG;
         private GroupBox groupBox7;
         private Label lbRL2_ID_stat;
         private TextBox txtRL2Carrier;
-        private Label label3;
         private TextBox txtRL2CarrierLot;
-        private Label label4;
         private Button btnRLCarrier2;
         private GroupBox groupBox8;
         private RadioButton rbRL2;
@@ -1812,9 +1753,7 @@
         private GroupBox groupBox9;
         private Label lbRL1_ID_stat;
         private TextBox txtRL1Carrier;
-        private Label label9;
         private TextBox txtRL1CarrierLot;
-        private Label label10;
         private Button btnRLCarrier1;
         private GroupBox groupBox10;
         private TextBox txtUpperLot;
@@ -1837,5 +1776,56 @@
         private CheckBox ckLotNG;
         private Button btnLotEnd3;
         private Button btnLotEnd2;
+        private TabPage tabUbm;
+        private TextBox txtUBM_Bcr;
+        private Label label15;
+        private Button btnUbmStep1;
+        private TextBox txtUbmID;
+        private Label label19;
+        private Button btnUbmStep2;
+        private Button btnUbmStep3;
+        private TextBox txtUbmLimitQty;
+        private Label label22;
+        private TextBox txtUbmWanningQty;
+        private Label label21;
+        private TextBox txtUbmUseQty;
+        private Label label20;
+        private Label lbUbmOutType5;
+        private Label lbUbmOutType1;
+        private Panel panel1;
+        private CheckBox ckUbmTimeOut;
+        private CheckBox ckUbmNg;
+        private Button btnMtrlStep4;
+        private Button btnMtrlStep3;
+        private GroupBox groupBox2;
+        private RadioButton rbMtrlOutType2;
+        private RadioButton rbMtrlOutType1;
+        private Label lbMtrlJobStat;
+        private Label lbMtrlIdStat;
+        private Label lbInCarrierJobStat;
+        private Button btnInCarrier3;
+        private Panel panel2;
+        private Label lbInCarrierOutType3;
+        private Label lbInCarrierOutType2;
+        private Button btnInCarrier2;
+        private TextBox txtInCarrierWork;
+        private Label label23;
+        private TextBox txtInCarrierWip;
+        private Label label5;
+        private Button btnOutCarrier3;
+        private Panel panel3;
+        private Label lbOutCarrierOutType6;
+        private Label lbOutCarrierOutType5;
+        private Button btnOutCarrier2;
+        private GroupBox groupBox3;
+        private TextBox txtOutCarrierWorkQty;
+        private Label label6;
+        private Label lbOutCarrierJobStat;
+        private Label lbOutCarrierIdStat;
+        private TextBox txtOutCarrierID;
+        private Label label10;
+        private TextBox txtOutCarrierLot;
+        private Label label24;
+        private Button btnOutCarrier1;
     }
 }

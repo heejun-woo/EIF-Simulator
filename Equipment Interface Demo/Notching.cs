@@ -7,12 +7,12 @@ using static System.Windows.Forms.Design.AxImporter;
 
 namespace Equipment_Interface_Demo
 {
-    public partial class Form1 : Form
+    public partial class Notching : Form
     {
         bool _bLotRunning = false;
         bool _bItPass = false;
 
-        public Form1()
+        public Notching()
         {
             InitializeComponent();
 
@@ -26,6 +26,7 @@ namespace Equipment_Interface_Demo
             InitializeCarrierRLLayout(tabCarrierRL);
 
             InitializeLotControlLayout(tabLotControl);
+            InitializeUBMLayout(tabUbm);
 
         }
 
@@ -690,6 +691,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcUWCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.00]");
                 AddAlarmSetCode(10000);
+
+                return;
             }
 
             if (ckUW1_NG.Checked)
@@ -718,8 +721,8 @@ namespace Equipment_Interface_Demo
 
                 Thread.Sleep(100);
 
-                _plcAlarm.HostWrite(CONF, false);
-                _plcAlarm.Info($"{TRIGER} Report Completed");
+                _PlcUWCarrier.HostWrite(CONF, false);
+                _PlcUWCarrier.Info($"{TRIGER} Report Completed");
             }
             else
             {
@@ -931,6 +934,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcUWCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.01]");
                 AddAlarmSetCode(10001);
+
+                return;
             }
 
             if (ckUW2_NG.Checked)
@@ -1209,6 +1214,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcRUCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.02]");
                 AddAlarmSetCode(10001);
+
+                return;
             }
 
             if (ckRU1_NG.Checked)
@@ -1326,6 +1333,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcRUCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.03]");
                 AddAlarmSetCode(10001);
+
+                return;
             }
 
             if (ckRU2_NG.Checked)
@@ -1412,6 +1421,7 @@ namespace Equipment_Interface_Demo
             txtRU2Carrier.ReadOnly = false;
         }
         #endregion
+
         #endregion
 
         #region Carrier - RL
@@ -1470,6 +1480,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcRLCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.04]");
                 AddAlarmSetCode(10004);
+
+                return;
             }
 
             if (ckRL1_NG.Checked)
@@ -1588,6 +1600,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcRLCarrier.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 3.05]");
                 AddAlarmSetCode(10005);
+
+                return;
             }
 
             if (ckRL2_NG.Checked)
@@ -1805,6 +1819,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcLotControl.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 1.02]");
                 AddAlarmSetCode(10004);
+
+                return;
             }
 
             if (ckRL1_NG.Checked)
@@ -1916,6 +1932,8 @@ namespace Equipment_Interface_Demo
 
                 _PlcLotControl.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 1.03]");
                 AddAlarmSetCode(10004);
+
+                return;
             }
 
             //DATA
@@ -2155,7 +2173,238 @@ namespace Equipment_Interface_Demo
             bPassPopup = true;
             _PlcLotControl.Event("##### Next Lot Start #####");
             btnLotStart_Click(btnLotStart, null);
-        } 
+        }
+        #endregion
+
+        #region UBM
+        private PlcMonitorControl _plcUBM;
+
+        private void InitializeUBMLayout(TabPage page)
+        {
+            SplitContainer _splitContainer = new SplitContainer();
+
+
+            _splitContainer.Dock = DockStyle.Fill;
+            _splitContainer.Orientation = Orientation.Vertical;
+
+            _splitContainer.SplitterDistance = _splitContainer.ClientSize.Width / 3;
+
+            _splitContainer.IsSplitterFixed = false;
+
+            page.Controls.Add(_splitContainer);
+
+            // 오른쪽 PLC Monitor
+            _plcUBM = new PlcMonitorControl();
+            _plcUBM.Dock = DockStyle.Fill;
+
+            _splitContainer.Panel2.Controls.Add(_plcUBM);
+
+        }
+
+
+
+        private void btnUbmStep1_Click(object sender, EventArgs e)
+        {
+            string bcr = txtUbmID.Text;
+
+            if (string.IsNullOrWhiteSpace(bcr) == false)
+            {
+                _plcUBM.Error($"UBM Parts is already in use");
+                return;
+            }
+
+            string TRIGER = "UBM Parts Input Report";
+            string CONF = "UBM Parts Input Confirm";
+            string ACK = "UBM Parts Input Confirm Ack";
+            string RANDOM = DateTime.Now.ToString("HHmmss");
+
+            _plcUBM.EqpWrite("UBM Parts ID", txtUBM_Bcr.Text);
+            _plcUBM.EqpWrite("UBM Parts Input Location", 11);
+            _plcUBM.EqpWrite(TRIGER, true);
+            _plcUBM.Info($"Confirm signal waiting");
+
+            Thread.Sleep(100);
+
+            if (ckUbmTimeOut.Checked)
+            {
+                _plcUBM.Info($"If there is no response for 30 seconds, it times out.");
+
+                _plcUBM.EqpWrite(TRIGER, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+
+                _plcUBM.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 2.06]");
+                AddAlarmSetCode(10004);
+
+                return;
+            }
+
+            if (ckUbmNg.Checked)
+            {
+                _plcUBM.HostWrite(ACK, 11);
+                _plcUBM.HostWrite(CONF, true);
+
+                _plcUBM.Info($"Since it is an ACK-11 NG, clear data");
+                _plcUBM.EqpWrite("UBM Parts ID", "");
+                _plcUBM.EqpWrite(TRIGER, false);
+
+                txtUbmID.Text = "";
+                txtUbmLimitQty.Text = "0";
+                txtUbmUseQty.Text = "0";
+                txtUbmWanningQty.Text = "0";
+
+                Thread.Sleep(100);
+
+                _plcUBM.HostWrite(CONF, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+            }
+            else
+            {
+                //DATA
+                _plcUBM.HostWrite("UBM Parts ID", "UBM" + RANDOM);
+                _plcUBM.HostWrite("Limit Usage Count", 10000);
+                _plcUBM.HostWrite("Usage Count", 1234);
+                _plcUBM.HostWrite("Limit Repair Count", 200);
+                _plcUBM.HostWrite("Repair Count", 34);
+                _plcUBM.HostWrite("UBM Parts Status", 1);
+                _plcUBM.HostWrite("UBM Parts Model ID", "MODEL" + RANDOM);
+                _plcUBM.HostWrite("Warning Usage Count", 9000);
+                _plcUBM.HostWrite(ACK, 10);
+                _plcUBM.HostWrite(CONF, true);
+
+                _plcUBM.Info($"Actions after receiving the host signal");
+
+                _plcUBM.EqpWrite("Current UBM Parts ID_01", "UBM" + RANDOM);
+                _plcUBM.EqpWrite("Limit Usage Count", 10000);
+                _plcUBM.EqpWrite("Current UBM Parts Usage Count_01", 1234);
+                _plcUBM.EqpWrite(TRIGER, false);
+
+                txtUbmID.Text = "UBM" + RANDOM;
+                txtUbmLimitQty.Text = "10000";
+                txtUbmUseQty.Text = "1234";
+                txtUbmWanningQty.Text = "9000";
+
+                Thread.Sleep(100);
+
+                _plcUBM.HostWrite(CONF, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+
+            }
+
+        }
+
+        private void btnUbmStep2_Click(object sender, EventArgs e)
+        {
+            if (txtUbmUseQty.Text.Equals("1234"))
+            {
+                txtUbmUseQty.Text = "9000";
+                _plcUBM.Event("A light alarm is triggered when the warning quantity is reached");
+            }
+            else if (txtUbmUseQty.Text.Equals("9000"))
+            {
+                txtUbmUseQty.Text = "10000";
+                _plcUBM.Event("A heavy alarm will be triggered if usage exceeds the limit");
+            }
+            //else txtUbmUseQty.Text = "1234";
+        }
+
+        int ubmOutType = 0;
+        private void lbUbmOutType1_Click(object sender, EventArgs e)
+        {
+            if (sender is not Label lb)
+                return;
+
+            Panel panel = lb.Parent as Panel;
+
+            if (panel == null)
+                return;
+
+            foreach (Label label in panel.Controls.OfType<Label>())
+            {
+                label.BackColor = Color.Yellow;
+                label.ForeColor = Color.Black;
+            }
+
+            lb.BackColor = Color.Black;
+            lb.ForeColor = Color.Yellow;
+
+            ubmOutType = Convert.ToInt32(lb.Tag);
+        }
+
+        private void btnUbmStep3_Click(object sender, EventArgs e)
+        {
+            string bcr = txtUbmID.Text;
+
+            if (string.IsNullOrWhiteSpace(bcr))
+            {
+                _plcUBM.Error($"The UBM parts are not installed.");
+                return;
+            }
+
+            string TRIGER = "UBM Parts Output Report";
+            string CONF = "UBM Parts Output Confirm";
+            string ACK = "UBM Parts Output Confirm Ack";
+            string RANDOM = DateTime.Now.ToString("HHmmss");
+
+            _plcUBM.EqpWrite("History UBM Parts ID", bcr);
+            _plcUBM.EqpWrite("History Usage Count", txtUbmUseQty.Text);
+            _plcUBM.EqpWrite("Reason Code", ubmOutType);
+            _plcUBM.EqpWrite("UBM Parts Output Location", "11");
+            _plcUBM.EqpWrite(TRIGER, true);
+            _plcUBM.Info($"Confirm signal waiting");
+
+            Thread.Sleep(100);
+
+            if (ckUbmTimeOut.Checked)
+            {
+                _plcUBM.Info($"If there is no response for 30 seconds, it times out.");
+
+                _plcUBM.EqpWrite(TRIGER, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+
+                _plcUBM.Event("EHxxxx(Alarm ID) : Host Communication Timeout[Tag 2.07]");
+                AddAlarmSetCode(10004);
+
+                return;
+            }
+
+            if (ckUbmNg.Checked)
+            {
+                _plcUBM.HostWrite(ACK, 11);
+                _plcUBM.HostWrite(CONF, true);
+
+
+                _plcUBM.EqpWrite(TRIGER, false);
+
+                Thread.Sleep(100);
+
+                _plcUBM.HostWrite(CONF, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+            }
+            else
+            {
+                //DATA
+                _plcUBM.HostWrite(ACK, 10);
+                _plcUBM.HostWrite(CONF, true);
+
+                _plcUBM.Info($"Actions after receiving the host signal");
+
+                _plcUBM.EqpWrite("Current UBM Parts ID_01", "");
+                _plcUBM.EqpWrite("Limit Usage Count", "");
+                _plcUBM.EqpWrite("Current UBM Parts Usage Count_01", "");
+                _plcUBM.EqpWrite(TRIGER, false);
+
+                txtUbmID.Text = "";
+                txtUbmLimitQty.Text = "0";
+                txtUbmUseQty.Text = "0";
+                txtUbmWanningQty.Text = "0";
+
+                Thread.Sleep(100);
+
+                _plcUBM.HostWrite(CONF, false);
+                _plcUBM.Info($"{TRIGER} Report Completed");
+
+            }
+        }
         #endregion
     }
 
